@@ -1,0 +1,247 @@
+.gantt-task-bounds {
+    border: 1px dashed;
+    height: 125%;
+    pointer-events: none;
+    position: absolute;
+    top: -12.5%;
+    z-index: 99;
+}
+
+.gantt-task-bounds-in { border-color: #2E4F2E; }
+
+.gantt-task-bounds-out { border-color: #FF6347; }
+
+.gantt-task-group {
+    background: rgb(99, 136, 205);
+
+    bottom: 0;
+
+    height: 30%;
+
+    margin: auto;
+    position: absolute;
+    top: -25%;
+}
+
+.gantt-task-group-left-main,
+.gantt-task-group-right-main {
+    background: rgb(99, 136, 205);
+
+    bottom: 0;
+    height: 100%;
+    margin: auto 0;
+
+    position: absolute;
+    top: 0;
+    width: 12px;
+}
+
+.gantt-task-group-left-main { left: -6px; }
+
+.gantt-task-group-right-main { right: -6px; }
+
+.gantt-task-group-left-symbol,
+.gantt-task-group-right-symbol {
+    border-left: 6px solid transparent;
+
+    border-right: 6px solid transparent;
+    border-top: 12px solid rgb(99, 136, 205);
+
+    bottom: 0;
+    height: 50%;
+
+    position: absolute;
+    top: 75%;
+    width: 0;
+}
+
+.gantt-task-group-left-symbol { left: -6px; }
+
+.gantt-task-group-right-symbol { right: -6px; }
+
+.gantt-task-overview {
+    -webkit-filter: grayscale(0.6);
+    filter: grayscale(0.6);
+    height: 40%;
+    top: 40%;
+}
+
+.gantt-task-overview .gantt-task-content { display: none; }
+
+.gantt-labels-header { overflow: hidden; }
+
+.gantt-labels-header-row {
+    box-sizing: border-box;
+    height: 2em;
+    overflow: hidden;
+    padding-left: 12px;
+    padding-right: 12px;
+    white-space: nowrap;
+}
+
+.gantt-labels-header-row span {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 2em;
+    overflow: hidden;
+    padding-top: 0.5em;
+    text-align: center;
+    text-overflow: clip;
+}
+
+.gantt-labels-header-row-last { border-bottom: 1px solid #dddddd; }
+
+.gantt-labels-header { overflow: hidden; }
+
+.gantt-labels-body { overflow: hidden; }
+
+.gantt-task-moving, .gantt-task-resizing {
+    -webkit-filter: grayscale(0.7);
+    filter: alpha(opacity=60);
+    filter: grayscale(0.7);
+    opacity: 0.6;
+    z-index: 750 !important;
+}
+
+.gantt-task-overlaps { border: 2px solid #e00000; }
+
+.gantt-task-progress {
+    border-radius: 2px;
+    bottom: 0px;
+    height: 6px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.gantt-row-label.on-dragging { background-color: #999999 !important; }
+
+.gantt-row-label.on-drag-hover { border: 1px solid #999999; }
+
+.gantt-table-header {
+    overflow: hidden;
+    position: relative;
+}
+
+.gantt-table-header-row {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.gantt-table-header-row span.gantt-label-text {
+    display: inline-block;
+    font-weight: bold;
+    overflow: hidden;
+    padding-top: 0.5em;
+    text-overflow: clip;
+    white-space: nowrap;
+}
+
+div.gantt-table-content { overflow: hidden; }
+
+.gantt-side-content-table > div.gantt-table-column {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.gantt-task-info {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    padding: 9px 12px;
+    position: fixed;
+    z-index: 999;
+}
+
+.gantt-task-info-content {
+    line-height: 1.1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.gantt-task-infoArrow:before,
+.gantt-task-infoArrowR:before {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid rgba(0, 0, 0, 0.1);
+    content: '';
+    height: 0px;
+    position: absolute;
+    top: 100%;
+    width: 0px;
+}
+
+.gantt-task-infoArrow:before { left: 10px; }
+
+.gantt-task-infoArrowR:before { right: 10px; }
+
+.gantt-task-infoArrow:after,
+.gantt-task-infoArrowR:after {
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #ffffff;
+    content: '';
+    height: 0px;
+    position: absolute;
+    top: 100%;
+    width: 0px;
+}
+
+.gantt-task-infoArrow:after { left: 11px; }
+
+.gantt-task-infoArrowR:after { right: 11px; }
+
+.gantt-row-label-background {
+    position: absolute;
+    width: 100%;
+}
+
+.gantt-tree-body .gantt-row-label span { margin: 0; }
+
+.gantt-tree-body .gantt-row-label a.gantt-tree-handle-button {
+    padding: 0;
+    position: relative;
+}
+
+.gantt-tree-body .gantt-row-label span.gantt-tree-handle {
+    padding: 0;
+    position: relative;
+}
+
+.gantt-tree-body .gantt-row-label span.gantt-label-text { padding-left: 0; }
+
+.gantt-tree-header {
+    overflow: hidden;
+    position: relative;
+}
+
+.gantt-tree-body { overflow: hidden; }
+
+.gantt-tree-header-row {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.gantt-tree-header-row span.gantt-label-text {
+    display: inline-block;
+    font-weight: bold;
+    overflow: hidden;
+    padding-top: 0.5em;
+    text-overflow: clip;
+    white-space: nowrap;
+}
+
+.gantt-tree-body ol { padding-left: 0; }
+
+.angular-ui-tree-handle {
+    cursor: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    min-height: inherit;
+    text-decoration: inherit;
+}
+
+.gantt-side-content-tree .gantt-tree-handle-button { pointer-events: auto; }

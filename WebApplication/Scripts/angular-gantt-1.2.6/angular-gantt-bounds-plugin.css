@@ -1,0 +1,12 @@
+.gantt-task-bounds {
+    border: 1px dashed;
+    height: 125%;
+    pointer-events: none;
+    position: absolute;
+    top: -12.5%;
+    z-index: 99;
+}
+
+.gantt-task-bounds-in { border-color: #2E4F2E; }
+
+.gantt-task-bounds-out { border-color: #FF6347; }

@@ -1,0 +1,7 @@
+.gantt-task-moving, .gantt-task-resizing {
+    -webkit-filter: grayscale(0.7);
+    filter: alpha(opacity=60);
+    filter: grayscale(0.7);
+    opacity: 0.6;
+    z-index: 750 !important;
+}

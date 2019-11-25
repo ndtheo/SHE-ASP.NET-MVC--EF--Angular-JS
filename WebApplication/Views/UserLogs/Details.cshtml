@@ -1,0 +1,51 @@
+﻿@using WebApplication.VisionToolkit.HtmlHelperExtensions
+@model Core.Entities.UserLog
+
+@Html.ModalHeader("User Log Details")
+
+<form class="text-nowrap" novalidate="novalidate" name="UserLogsForm">  
+	<div class="form-horizontal">
+			 <div class="modal-body">
+
+			<div class="form-group col-sm-6 col-md-6">
+				@Html.CustomLabelFor(model => model.UserID)
+				<div class="col-md-8">
+					@Html.CustomEditorFor(model => model.UserID)
+					@Html.CustomValidationMessageFor(model => model.UserID)
+				</div>
+			</div>
+			<div class="form-group col-sm-6 col-md-6">
+				@Html.CustomLabelFor(model => model.DateLogin)
+				<div class="col-md-8">
+					@Html.CustomEditorFor(model => model.DateLogin)
+					@Html.CustomValidationMessageFor(model => model.DateLogin)
+				</div>
+			</div>
+			<div class="form-group col-sm-6 col-md-6">
+				@Html.CustomLabelFor(model => model.DateLogout)
+				<div class="col-md-8">
+					@Html.CustomEditorFor(model => model.DateLogout)
+					@Html.CustomValidationMessageFor(model => model.DateLogout)
+				</div>
+			</div>
+			<div class="form-group col-sm-6 col-md-6">
+				@Html.CustomLabelFor(model => model.Ip)
+				<div class="col-md-8">
+					@Html.CustomEditorFor(model => model.Ip)
+					@Html.CustomValidationMessageFor(model => model.Ip)
+				</div>
+			</div>
+			@Html.Partial("_CreatorDetailsPartial")
+			</div>
+			@*<div class="modal-footer">
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					@Html.ModalSaveAndCloseButton()
+					@Html.ModalSaveButton()
+					@Html.ModalCloseButton()
+				</div>
+			</div>*@
+		</div>
+	</div>
+</form>
+

@@ -1,0 +1,13 @@
+﻿insert into RepairTypes (name) values ('Disassemble/Assemble');
+insert into RepairTypes (name) values ('Other');
+
+insert into RepairTypes (name) values ('Probable Replacement');
+
+insert into DamageCategories (Name) values ('ΖΑΝΤΑ');
+insert into DamageCategories (Name) values ('ΠΑΜΠΡΙΖ');
+insert into DamageCategories (Name) values ('ΠΡΟΦΥΛΑΚΤΗΡΑΣ');
+insert into DamageCategories (Name) values ('ΤΙΜΟΝΙ');
+insert into DamageCategories (Name) values ('ΦΤΕΡΟ');
+
+delete from RepairTypes where Name in ('ΖΑΝΤΑ','ΠΡΟΦΥΛΑΚΤΗΡΑΣ','ΠΑΜΠΡΙΖ','ΤΙΜΟΝΙ','ΦΤΕΡΟ');
+

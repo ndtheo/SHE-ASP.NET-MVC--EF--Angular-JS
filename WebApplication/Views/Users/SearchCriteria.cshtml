@@ -1,0 +1,45 @@
+﻿@using WebApplication.VisionToolkit.HtmlHelperExtensions
+@model Database.Models.SearchCriteria.UserSearchCriteria
+
+@Html.ModalHeader("User Search Criteria", "ctrl.CloseModal()", false)
+
+<form class="text-nowrap" novalidate="novalidate" name="UsersSearchForm">
+    <div class="form-horizontal">
+        <div class="modal-body">
+
+            <div class="form-group col-sm-6 col-md-6">
+                @Html.CustomLabelFor(model => model.Name)
+                <div class="col-md-8">
+                    @Html.CustomEditorFor(model => model.Name)
+                    @Html.CustomValidationMessageFor(model => model.Name)
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6 col-md-6">
+                @Html.CustomLabelFor(model => model.Email)
+                <div class="col-md-8">
+                    @Html.CustomEditorFor(model => model.Email)
+                    @Html.CustomValidationMessageFor(model => model.Email)
+                </div>
+            </div>
+         
+            <div class="form-group col-sm-6 col-md-6">
+                @Html.CustomLabelFor(model => model.PhoneNumber)
+                <div class="col-md-8">
+                    @Html.CustomEditorFor(model => model.PhoneNumber)
+                    @Html.CustomValidationMessageFor(model => model.PhoneNumber)
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.ModalSaveAndCloseButton("Search")
+                    @Html.ClearSearchCiteriaButton()
+                    @Html.ModalCloseButton()
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

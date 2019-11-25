@@ -1,0 +1,23 @@
+﻿@using WebApplication.VisionToolkit.HtmlHelperExtensions
+@model Core.Entities.VehicleType
+@using Core.Entities
+
+@Html.ModalHeader(VsLabels.VEHICLE_TYPE)
+
+<form class="text-nowrap" novalidate="novalidate" name="VehicleTypesForm">
+    <div class="form-horizontal">
+        <div class="modal-body">
+
+            <div class="form-group col-sm-6 col-md-6">
+                @Html.CustomLabelFor(model => model.Name)
+                <div class="col-md-8">
+                    @Html.CustomEditorFor(model => model.Name)
+                    @Html.CustomValidationMessageFor(model => model.Name)
+                </div>5
+            </div>
+            @Html.Partial("_CreatorDetailsPartial")
+        </div>
+    </div>
+    </div>
+</form>
+

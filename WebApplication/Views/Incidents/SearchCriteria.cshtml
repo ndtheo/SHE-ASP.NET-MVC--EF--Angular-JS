@@ -1,0 +1,106 @@
+﻿@using Core.Entities;
+@using WebApplication.VisionToolkit.HtmlHelperExtensions
+@model Database.Models.SearchCriteria.AccidentSearchCriteria
+
+@Html.ModalHeader(VsLabels.ACCIDENTS + " " + VsLabels.SEARCH_CRITERIA, "ctrl.CloseModal()", false)
+
+<form class="text-nowrap" novalidate="novalidate" name="AccidentsSearchForm">  
+	<div class="form-horizontal">
+		<div class="modal-body">
+			<div class="form-group col-md-6">
+				@Html.CustomLabelFor(model => model.AccidentTypeId)
+				<div class="col-md-6">
+					@Html.CustomDropDownList(model => model.AccidentTypeId)
+					@Html.CustomValidationMessageFor(model => model.AccidentTypeId)
+				</div>
+			</div>
+
+			<div class="form-group col-md-6">
+				@Html.CustomLabelFor(model => model.AccidentDateFrom)
+				<div class="col-md-6">
+					@Html.CustomEditorFor(model => model.AccidentDateFrom)
+					@Html.CustomValidationMessageFor(model => model.AccidentDateFrom)
+				</div>
+			</div>
+
+			<div class="form-group col-md-6">
+				@Html.CustomLabelFor(model => model.AccidentDateTo)
+				<div class="col-md-6">
+					@Html.CustomEditorFor(model => model.AccidentDateTo)
+					@Html.CustomValidationMessageFor(model => model.AccidentDateTo)
+				</div>
+			</div>
+
+			<div class="form-group col-sm-6 col-md-6">
+				@Html.CustomLabelFor(model => model.InsuranceNo)
+				<div class="col-md-6">
+					@Html.CustomEditorFor(model => model.InsuranceNo)
+					@Html.CustomValidationMessageFor(model => model.InsuranceNo)
+				</div>
+			</div>
+
+			<div class="form-group col-sm-6 col-md-6">
+				@Html.CustomLabelFor(model => model.Location)
+				<div class="col-md-6">
+					@Html.CustomEditorFor(model => model.Location)
+					@Html.CustomValidationMessageFor(model => model.Location)
+				</div>
+			</div>
+
+			<div class="form-group col-sm-6 col-md-6">
+				@Html.CustomLabelFor(model => model.OrderNo)
+				<div class="col-md-6">
+					@Html.CustomEditorFor(model => model.OrderNo)
+					@Html.CustomValidationMessageFor(model => model.OrderNo)
+				</div>
+			</div>
+
+			<div class="form-group col-md-6">
+				@Html.CustomLabelFor(model => model.AssignmentDateFrom)
+				<div class="col-md-6">
+					@Html.CustomEditorFor(model => model.AssignmentDateFrom)
+					@Html.CustomValidationMessageFor(model => model.AssignmentDateFrom)
+				</div>
+			</div>
+
+			<div class="form-group col-md-6">
+				@Html.CustomLabelFor(model => model.AssignmentDateTo)
+				<div class="col-md-6">
+					@Html.CustomEditorFor(model => model.AssignmentDateTo)
+					@Html.CustomValidationMessageFor(model => model.AssignmentDateTo)
+				</div>
+			</div>
+
+			<div class="form-group col-sm-6 col-md-6">
+				@Html.CustomLabelFor(model => model.DamageNo)
+				<div class="col-md-6">
+					@Html.CustomEditorFor(model => model.DamageNo)
+					@Html.CustomValidationMessageFor(model => model.DamageNo)
+				</div>
+			</div>
+
+			<div class="form-group col-sm-6 col-md-6">
+				@Html.CustomLabelFor(model => model.Comments)
+				<div class="col-md-6">
+					@Html.CustomEditorFor(model => model.Comments)
+					@Html.CustomValidationMessageFor(model => model.Comments)
+				</div>
+			</div>
+
+
+			 @Html.Partial("_CreatorSearchCriteriaPartial")
+
+
+		</div>
+		<div class="modal-footer">
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					@Html.ModalSaveAndCloseButton(VsLabels.SEARCH)
+					@Html.ClearSearchCiteriaButton()
+					@Html.ModalCloseButton()
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+

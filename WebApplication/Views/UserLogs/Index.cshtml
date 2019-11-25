@@ -1,0 +1,104 @@
+﻿@using WebApplication.VisionToolkit.HtmlHelperExtensions
+@using Core.Entities
+@model IEnumerable<Core.Entities.UserLog>
+
+<br />
+<div class="panel panel-default" ng-controller="UserLogsIndexController as ctrl"> 
+
+<div class="panel-heading clearfix">
+    <div class="pull-left">
+        <h2 class="panel-title pull-left"><i class="fic glyphicon glyphicon-home"></i> User Logs</h2>
+        @Html.RefreshGridButton()
+        @Html.NewEntityButton()
+        @Html.DeleteEntityButton()
+        <div class="input-group pull-right" style="max-width: 300px;width:100px;">
+            @Html.ExportGridToExcelButton()
+
+            <div class="input-group-btn" uib-dropdown auto-close="outsideClick">
+                <button class="btn btn-default" type="button" uib-dropdown-toggle style="margin-left:10px"><span class="glyphicon glyphicon-cog"></span></button>
+                <div class="dropdown-menu dropdown-menu-right" uib-dropdown-menu style="padding-left: 10px">
+                    <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.UserID">@Html.DisplayNameFor(model => model.UserID)</label></div>
+                    <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.DateLogin">@Html.DisplayNameFor(model => model.DateLogin)</label></div>
+                    <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.DateLogout">@Html.DisplayNameFor(model => model.DateLogout)</label></div>
+                    <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.Ip">@Html.DisplayNameFor(model => model.Ip)</label></div>
+
+                    <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.LastUpdateUser">@Html.DisplayNameFor(model => model.LastUpdateUserId)</label></div>
+                    <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.LastUpdateDate">@Html.DisplayNameFor(model => model.LastUpdateDate)</label></div>
+                    <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.Creator">@Html.DisplayNameFor(model => model.CreatorId)</label></div>
+                    <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.CreationDate">@Html.DisplayNameFor(model => model.CreationDate)</label></div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+
+    <div class="input-group pull-right" style="max-width: 300px">
+        <input type="text" class="form-control pull-right" placeholder=@VsLabels.SEARCH ng-model="ctrl.Filter" ng-keyup="$event.keyCode == 13 && ctrl.RefreshGrid()" />
+        <span class="input-group-btn">
+            <button class="btn btn-danger" type="button" ng-click="ctrl.RefreshGrid()"><span class="glyphicon glyphicon-search" title="Quick Search at User Name"></span></button>
+        </span>
+
+        @Html.OpenSearchCriteriaButton()
+    </div>
+</div>
+
+<div style="overflow-x: scroll">
+<table class="table table-hover text-nowrap">
+<thead>
+	<tr>
+		<th ng-show="ctrl.Display.UserID" ng-click="ctrl.ChangeOrderBy('UserID')">
+			@Html.DisplayNameFor(model => model.UserID)
+			@Html.SortIcon("UserID")
+		</th>
+		<th ng-show="ctrl.Display.DateLogin" ng-click="ctrl.ChangeOrderBy('DateLogin')">
+			@Html.DisplayNameFor(model => model.DateLogin)
+			@Html.SortIcon("DateLogin")
+		</th>
+		<th ng-show="ctrl.Display.DateLogout" ng-click="ctrl.ChangeOrderBy('DateLogout')">
+			@Html.DisplayNameFor(model => model.DateLogout)
+			@Html.SortIcon("DateLogout")
+		</th>
+		<th ng-show="ctrl.Display.Ip" ng-click="ctrl.ChangeOrderBy('Ip')">
+			@Html.DisplayNameFor(model => model.Ip)
+			@Html.SortIcon("Ip")
+		</th>
+		<th ng-show="ctrl.Display.LastUpdateUser" ng-click="ctrl.ChangeOrderBy('LastUpdateUser.Name')">
+			@Html.DisplayNameFor(model => model.LastUpdateUserId)
+			@Html.SortIcon("LastUpdateUser.Name")
+		</th>
+		<th ng-show="ctrl.Display.LastUpdateDate" ng-click="ctrl.ChangeOrderBy('LastUpdateDate')">
+			@Html.DisplayNameFor(model => model.LastUpdateDate)
+			@Html.SortIcon("LastUpdateDate")
+		</th>
+		<th ng-show="ctrl.Display.Creator" ng-click="ctrl.ChangeOrderBy('Creator.Name')">
+			@Html.DisplayNameFor(model => model.CreatorId)
+			@Html.SortIcon("Creator.Name")
+		</th>
+		<th ng-show="ctrl.Display.CreationDate" ng-click="ctrl.ChangeOrderBy('CreationDate')">
+			@Html.DisplayNameFor(model => model.CreationDate)
+			@Html.SortIcon("CreationDate")
+		</th>
+	</tr>
+	</thead>
+
+	<tbody>
+	<tr ng-repeat="UserLog in ctrl.UserLogs" ng-click="ctrl.Select(UserLog.Id)" ng-dblclick="ctrl.EditEntity(UserLog.Id)" ng-class="{active: UserLog.Id === ctrl.SelectedId}" style="cursor: pointer;">
+					<td title="{{UserLog.UserID}}"  ng-show="ctrl.Display.UserID" ng-bind="UserLog.UserID"></td>
+					<td title="{{UserLog.DateLogin | visionDate}}"  ng-show="ctrl.Display.DateLogin" ng-bind="UserLog.DateLogin | visionDate"></td>
+					<td title="{{UserLog.DateLogout | visionDate}}"  ng-show="ctrl.Display.DateLogout" ng-bind="UserLog.DateLogout | visionDate"></td>
+					<td title="{{UserLog.Ip}}"  ng-show="ctrl.Display.Ip" ng-bind="UserLog.Ip"></td>
+					<td title="{{UserLog.LastUpdateUserName}}" ng-show="ctrl.Display.LastUpdateUser" ng-bind="UserLog.LastUpdateUserName"></td>
+					<td title="{{UserLog.LastUpdateDate | visionDate}}" ng-show="ctrl.Display.LastUpdateDate" ng-bind="UserLog.LastUpdateDate | visionDate"></td>
+					<td title="{{UserLog.CreatorName}}" ng-show="ctrl.Display.Creator" ng-bind="UserLog.CreatorName"></td>
+					<td title="{{UserLog.CreationDate | visionDate}}" ng-show="ctrl.Display.CreationDate" ng-bind="UserLog.CreationDate | visionDate"></td>
+	</tr>
+	</tbody>
+</table>
+</div>
+
+<div class="panel-footer">
+	@Html.PanelFooter()
+</div>
+
+</div>
+

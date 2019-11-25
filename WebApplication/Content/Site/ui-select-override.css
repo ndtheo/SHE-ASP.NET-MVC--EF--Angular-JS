@@ -1,0 +1,11 @@
+﻿
+/*#region UI Select/Selectize fix */
+
+.ui-select-match > span {
+    float: left;
+}
+
+.ui-select-search {
+    float: left;
+}
+/*#endregion */

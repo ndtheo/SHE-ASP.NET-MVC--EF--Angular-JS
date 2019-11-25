@@ -1,0 +1,56 @@
+.gantt-task-group {
+    background: rgb(99, 136, 205);
+
+    bottom: 0;
+
+    height: 30%;
+
+    margin: auto;
+    position: absolute;
+    top: -25%;
+}
+
+.gantt-task-group-left-main,
+.gantt-task-group-right-main {
+    background: rgb(99, 136, 205);
+
+    bottom: 0;
+    height: 100%;
+    margin: auto 0;
+
+    position: absolute;
+    top: 0;
+    width: 12px;
+}
+
+.gantt-task-group-left-main { left: -6px; }
+
+.gantt-task-group-right-main { right: -6px; }
+
+.gantt-task-group-left-symbol,
+.gantt-task-group-right-symbol {
+    border-left: 6px solid transparent;
+
+    border-right: 6px solid transparent;
+    border-top: 12px solid rgb(99, 136, 205);
+
+    bottom: 0;
+    height: 50%;
+
+    position: absolute;
+    top: 75%;
+    width: 0;
+}
+
+.gantt-task-group-left-symbol { left: -6px; }
+
+.gantt-task-group-right-symbol { right: -6px; }
+
+.gantt-task-overview {
+    -webkit-filter: grayscale(0.6);
+    filter: grayscale(0.6);
+    height: 40%;
+    top: 40%;
+}
+
+.gantt-task-overview .gantt-task-content { display: none; }

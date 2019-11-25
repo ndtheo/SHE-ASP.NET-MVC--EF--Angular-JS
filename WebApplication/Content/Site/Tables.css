@@ -1,0 +1,90 @@
+﻿/*#region Table styling */
+
+.table > thead > tr > td.active,
+.table > tbody > tr > td.active,
+.table > tfoot > tr > td.active,
+.table > thead > tr > th.active,
+.table > tbody > tr > th.active,
+.table > tfoot > tr > th.active,
+.table > thead > tr.active > td,
+.table > tbody > tr.active > td,
+.table > tfoot > tr.active > td,
+.table > thead > tr.active > th,
+.table > tbody > tr.active > th,
+.table > tfoot > tr.active > th {
+     background-color: #a9a9a9;
+}
+
+.table-hover > tbody > tr > td.active:hover,
+.table-hover > tbody > tr > th.active:hover,
+.table-hover > tbody > tr.active:hover > td,
+.table-hover > tbody > tr:hover > .active,
+.table-hover > tbody > tr.active:hover > th {
+     background-color: #aaa;
+}
+
+td, tr {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*#endregion */
+
+
+/*#region scrollable tables */
+
+td, th {
+    max-width: 200px;
+    min-width: 200px;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table:not(.not-scroll) tbody {
+    direction: ltr;
+    display: block;
+    max-height: -webkit-calc(100vh - 270px);
+    overflow-y: scroll;
+}
+    /*
+.tab-pane .table:not(.not-scroll) tbody {
+     max-height: -webkit-calc(100vh - 600px);
+}
+*/
+.table:not(.not-scroll) thead,
+.table:not(.not-scroll) tbody tr,
+.table:not(.not-scroll) tfoot {
+    display: table;
+    table-layout: fixed;
+}
+
+/*#endregion */
+
+
+.orders-report-table td,
+.orders-report-table th {
+    max-width: 100px;
+    min-width: 100px;
+}
+
+.orders-report-table td:first-child,
+.orders-report-table th:first-child {
+    max-width: 40px;
+    min-width: 40px;
+}
+
+.orders-report-table td:nth-child(2),
+.orders-report-table th:nth-child(2) {
+    max-width: 250px;
+    min-width: 250px;
+}
+
+.orders-report-table td:not(:first-child):not(:nth-child(2)):hover,
+.orders-report-table th:not(:first-child):not(:nth-child(2)):hover { background-color: #a9a9a9 }
+
+.orders-report-table tbody {
+    max-height: -webkit-calc(100vh - 300px);
+    min-height: -webkit-calc(100vh - 300px);
+}

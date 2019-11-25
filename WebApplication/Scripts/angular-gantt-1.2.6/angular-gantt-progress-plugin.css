@@ -1,0 +1,7 @@
+.gantt-task-progress {
+    border-radius: 2px;
+    bottom: 0px;
+    height: 6px;
+    overflow: hidden;
+    position: absolute;
+}

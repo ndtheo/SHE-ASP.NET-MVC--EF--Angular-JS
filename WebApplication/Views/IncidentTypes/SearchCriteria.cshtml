@@ -1,0 +1,32 @@
+﻿@using WebApplication.VisionToolkit.HtmlHelperExtensions
+@model Database.Models.SearchCriteria.VehicleTypeSearchCriteria
+@using Core.Entities
+
+@Html.ModalHeader(VsLabels.VEHICLE_TYPE + " " + VsLabels.SEARCH_CRITERIA, "ctrl.CloseModal()", false)
+
+<form class="text-nowrap" novalidate="novalidate" name="VehicleTypesSearchForm">
+    <div class="form-horizontal">
+        <div class="modal-body">
+            <div class="form-group col-sm-6 col-md-6">
+                @Html.CustomLabelFor(model => model.Name)
+                <div class="col-md-6">
+                    @Html.CustomEditorFor(model => model.Name)
+                    @Html.CustomValidationMessageFor(model => model.Name)
+                </div>
+            </div>
+
+
+            @Html.Partial("_CreatorSearchCriteriaPartial")
+        </div>
+        <div class="modal-footer">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.ModalSaveAndCloseButton(VsLabels.SEARCH)
+                    @Html.ClearSearchCiteriaButton()
+                    @Html.ModalCloseButton()
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

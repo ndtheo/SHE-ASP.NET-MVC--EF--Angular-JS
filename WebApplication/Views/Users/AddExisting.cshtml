@@ -1,0 +1,42 @@
+﻿@using WebApplication.VisionToolkit.ExtensionMethods
+@using WebApplication.VisionToolkit.HtmlHelperExtensions
+@model Core.Entities.User
+
+@{
+    Layout = null;
+}
+
+@Html.ModalHeader("Select User", "$dismiss()")
+
+<form class="text-nowrap" novalidate="novalidate" name="RolesForm">
+    <div class="form-horizontal">
+
+        <div class="modal-body">
+            <div class="form-group col-sm-6 col-md-6">
+                @Html.CustomLabelFor(model => model.Email)
+                <div class="col-md-8">
+                    @Html.CustomDropDownList(model => model.Id)
+                    @Html.CustomValidationMessageFor(model => model.Id)
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.ModalSaveAndCloseButton("Add User", attributes: new Dictionary<string, object>()
+                    {
+                        {
+                            "ng-click", "$close(ctrl.model.Id)"
+                        }
+                    })
+                    @Html.ModalCloseButton(attributes: new Dictionary<string, object>()
+                    {
+                        {
+                            "ng-click", "$dismiss()"
+                        }
+                    });
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

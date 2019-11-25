@@ -1,0 +1,324 @@
+.gantt { line-height: normal; }
+
+.gantt-side-content,
+.gantt-body { pointer-events: none; }
+
+.gantt-side-background,
+.gantt-body-background,
+.gantt-row { pointer-events: auto; }
+
+.gantt a,
+.gantt input,
+.gantt *[ng-click],
+.gantt *[data-ng-click],
+.gantt *[x-ng-click] { pointer-events: auto; }
+
+.gantt-scrollable {
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    overflow-x: auto;
+}
+
+.gantt-scrollable-header {
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    overflow-x: hidden;
+}
+
+.gantt-header,
+.gantt-side,
+.gantt-task { cursor: default; }
+
+.gantt-header { overflow: hidden; }
+
+.gantt-row-label span.gantt-label-text {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.gantt-row-label {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.gantt-valign-container { height: 100%; }
+
+.gantt-valign-content {
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.gantt-side-background {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.gantt-side-background-body { overflow: hidden; }
+
+.gantt-side-content {
+    overflow: hidden;
+    position: relative;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.gantt-side-content > div.side-element { display: inline-block; }
+
+.gantt-header-columns {
+    height: 100%;
+    position: relative;
+}
+
+.gantt-side {
+    float: left;
+    position: relative;
+}
+
+.gantt-header-row {
+    border-top: 1px solid #dddddd;
+    box-sizing: border-box;
+    height: 2em;
+    white-space: nowrap;
+}
+
+.gantt-header-row-last { border-bottom: 1px solid #dddddd; }
+
+.gantt-header-row .gantt-column-header {
+    border-right: 1px solid #dddddd;
+    position: absolute;
+}
+
+.gantt-header-row .gantt-column-header-last {
+    border-right: none;
+    position: absolute;
+}
+
+.gantt-header-row .gantt-column-header {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 2em;
+    overflow: hidden;
+    padding-top: 0.5em;
+    text-align: center;
+    text-overflow: clip;
+}
+
+.gantt-foreground-col,
+.gantt-foreground-col-nonworkhour,
+.gantt-foreground-col-current-date {
+    border-right: 1px solid #dddddd;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+}
+
+.gantt-foreground-col-nonworkhour { background-color: rgba(200, 200, 200, 0.3); }
+
+.gantt-column-header-last { border-right: none; }
+
+.gantt-column-last { border-right: none; }
+
+.gantt-side-background-header { position: relative; }
+
+.gantt-side-header-row {
+    border-bottom: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+    bottom: 0;
+    overflow: hidden;
+    padding-left: 12px;
+    padding-right: 12px;
+    position: absolute;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.gantt-body {
+    height: 100%;
+    position: relative;
+}
+
+.gantt-body-rows { overflow-x: hidden; }
+
+.gantt-body-background {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.gantt-body-foreground {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.gantt-body-columns {
+    height: 100%;
+    position: absolute;
+}
+
+.gantt-resizer {
+    height: 100%;
+    position: absolute;
+    right: -6px;
+    top: 0px;
+    width: 12px;
+    z-index: 1;
+}
+
+.gantt-resizer-enabled { cursor: ew-resize; }
+
+.gantt-resizer-display {
+    background-color: #DDDDDD;
+    background-image: -webkit-linear-gradient(0deg, transparent 50%, rgba(255, 255, 255, .5) 50%);
+    background-image: linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, .5) 50%);
+    background-size: 2px 2px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 4px;
+}
+
+.gantt-timeframe {
+    box-sizing: border-box;
+    height: 100%;
+    position: absolute;
+}
+
+.gantt-timeframe-non-working {
+    background-color: lightgray;
+    opacity: 0.3;
+}
+
+.gantt-foreground-col-current-date {
+    background-color: green;
+    opacity: 0.6
+}
+
+.gantt-row-background {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.gantt-row-content {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.gantt-row-even > .gantt-row-background { background-color: #EFEFEF; }
+
+.gantt-row { position: relative; }
+
+.gantt-row-height { height: 2em; }
+
+.gantt-task {
+    bottom: 0;
+
+    height: 80%;
+    margin: auto;
+    min-width: 0.6em;
+    position: absolute;
+    top: 0;
+}
+
+.gantt-task-milestone {
+    background-color: grey;
+
+    border-radius: 0.3em;
+    bottom: 0;
+    height: 80%;
+    margin: auto;
+    position: absolute;
+
+    top: 0;
+    width: 0.6em !important;
+}
+
+.gantt-task-background {
+    background-color: grey;
+
+    border-radius: 2px;
+    height: 100%;
+
+    position: absolute;
+    width: 100%;
+}
+
+.gantt-task-foreground {
+    height: 100%;
+
+    position: absolute;
+    width: 100%;
+}
+
+.gantt-task-content {
+    height: 100%;
+
+    overflow: hidden;
+    overflow: hidden;
+
+    position: absolute;
+    text-align: center;
+
+    vertical-align: middle;
+
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.gantt-task-content > span {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.gantt-task-truncated-left {
+    bottom: 0;
+    left: 0.3em;
+    position: absolute;
+    top: 0;
+}
+
+.gantt-task-truncated-right {
+    bottom: 0;
+    position: absolute;
+    right: 0.3em;
+    top: 0;
+}
+
+.gantt-task-truncated-left, .gantt-task-truncated-right {
+    color: #ffffff;
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+.gantt-timespan {
+    background-color: rgba(158, 158, 158, 0.5);
+    border-left: 1px solid rgba(158, 158, 158, 1);
+    border-right: 1px solid rgba(158, 158, 158, 1);
+    box-sizing: border-box;
+    color: black;
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+}
+
+.gantt-current-date-line {
+    border: 1px dotted green;
+    height: 100%;
+    opacity: 0.6;
+    position: absolute;
+}
+
+.unselectable {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}

@@ -1,0 +1,39 @@
+Ασφαλιστικές
+ΔΟΥ
+Δραστηριότητες
+Εκδόσεις
+Καταστάσεις Ελαστικών
+Καταστάσεις Οχήματος
+Κατηγ. Ζημιάς
+Καύσιμα
+Μάρκες
+Μοντέλα
+Πόλεις
+Πραγματογνώμονες
+Τύποι Έκθεσης
+Τύποι Επισκευής
+Τύποι Οχήματος
+Τύποι Χρέωσης
+Χρώματα
+
+English sorting
+
+                <li>@Html.ActionLinkSecure(VsLabels.ACCIDENT_TYPE, "Index", "AccidentTypes")</li>
+                <li>@Html.ActionLinkSecure(VsLabels.ACTIVITIES, "Index", "Activities")</li>
+                <li>@Html.ActionLinkSecure(VsLabels.CAR_BRANDS, "Index", "CarBrands")</li>
+                <li>@Html.ActionLinkSecure(VsLabels.CAR_CONDITIONS, "Index", "CarConditions")</li>
+                <li>@Html.ActionLinkSecure(VsLabels.CAR_MODELS, "Index", "CarModels")</li>
+                <li>@Html.ActionLinkSecure(VsLabels.CHARGE_TYPES, "Index", "ChargeTypes")</li>
+                <li>@Html.ActionLinkSecure(VsLabels.CITIES, "Index", "Cities")</li>
+                <li>@Html.ActionLinkSecure(VsLabels.COLORS, "Index", "Colors")</li>
+                @*<li>@Html.ActionLinkSecure("Damage Categories", "Index", "DamageCategories")</li>*@
+                <li>@Html.ActionLinkSecure(VsLabels.EXPERTS, "Index", "Experts")</li>
+                <li>@Html.ActionLinkSecure(VsLabels.FUELS, "Index", "FuelTypes")</li>
+                <li>@Html.ActionLinkSecure(VsLabels.INSURANCE_COMPANIES, "Index", "InsuranceCompanies")</li>
+                <li>@Html.ActionLinkSecure(VsLabels.CAR_MODEL_VERSIONS, "Index", "ModelVersions")</li>
+                <li>@Html.ActionLinkSecure(VsLabels.PROPOSALS, "Index", "Proposals")</li>
+                <li>@Html.ActionLinkSecure(VsLabels.REPAIR_TYPES, "Index", "RepairTypes")</li>
+                <li>@Html.ActionLinkSecure(VsLabels.REPORT_TYPES, "Index", "ReportTypes")</li>
+                <li>@Html.ActionLinkSecure(VsLabels.TAX_OFFICE, "Index", "TaxOffices")</li>
+                <li>@Html.ActionLinkSecure(VsLabels.TIRE_CONDITIONS, "Index", "TireConditions")</li>
+                <li>@Html.ActionLinkSecure(VsLabels.VEHICLE_TYPES, "Index", "VehicleTypes")</li>

@@ -1,0 +1,76 @@
+﻿@using WebApplication.VisionToolkit.HtmlHelperExtensions
+@using Core.Entities
+@model IEnumerable<Core.Entities.User>
+
+<br/>
+<div class="panel panel-default" ng-controller="UsersIndexController as ctrl">
+
+    <div class="panel-heading clearfix">
+        <div class="pull-left">
+            <h2 class="panel-title pull-left">
+                <i class="fic glyphicon glyphicon-home"></i> Users
+            </h2>
+            @Html.RefreshGridButton()
+            @if (ViewBag.IsTab)
+            {
+                @Html.NewEntityButton("Add User", new Dictionary<string, object> { ["ng-click"] = "ctrl.AddUserToRole()" })
+                @Html.DeleteEntityButton("Are you sure you want to remove this user from this role?", "ctrl.RemoveUserFromRole()")
+            }
+            else
+            {
+                @Html.DeleteEntityButton()
+            }
+            <div class="input-group pull-right" style="max-width: 300px;width:100px;">
+                @Html.ExportGridToExcelButton()
+
+                <div class="input-group-btn" uib-dropdown auto-close="outsideClick">
+                    <button class="btn btn-default" type="button" uib-dropdown-toggle style="margin-left: 10px">
+                        <span class="glyphicon glyphicon-cog"></span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" uib-dropdown-menu style="padding-left: 10px">
+                        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.Name">@Html.DisplayNameFor(model => model.Name)</label></div>
+                        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.Email">@Html.DisplayNameFor(model => model.Email)</label></div>
+                        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.PhoneNumber">@Html.DisplayNameFor(model => model.PhoneNumber)</label></div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+
+        <div class="input-group pull-right" style="max-width: 300px">
+            <input type="text" class="form-control pull-right" placeholder=@VsLabels.SEARCH ng-model="ctrl.SearchCriteria.Name" ng-keyup="$event.keyCode == 13 && ctrl.RefreshGrid()" />
+            <span class="input-group-btn">
+                <button class="btn btn-danger" type="button" ng-click="ctrl.RefreshGrid()" title="Quick Search at User Name">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+
+            @Html.OpenSearchCriteriaButton()
+        </div>
+    </div>
+
+    <div style="overflow-x: scroll">
+        <table class="table table-hover text-nowrap">
+            <thead>
+            <tr>
+                <th ng-show="ctrl.Display.Name" ng-click="ctrl.ChangeOrderBy('Name')">@Html.DisplayNameFor(model => model.Name) @Html.SortIcon("Name")</th>
+                <th ng-show="ctrl.Display.Email" ng-click="ctrl.ChangeOrderBy('Email')">@Html.DisplayNameFor(model => model.Email) @Html.SortIcon("Email")</th>
+                <th ng-show="ctrl.Display.PhoneNumber" ng-click="ctrl.ChangeOrderBy('PhoneNumber')">Phone Number @Html.SortIcon("PhoneNumber")</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="User in ctrl.Users" ng-click="ctrl.Select(User.Id)" ng-dblclick="ctrl.EditEntity(User.Id)" ng-class="{active: User.Id === ctrl.SelectedId}" style="cursor: pointer;">
+                <td title="{{User.Name}}" ng-show="ctrl.Display.Name" ng-bind="User.Name"></td>
+                <td title="{{User.Email}}" ng-show="ctrl.Display.Email" ng-bind="User.Email"></td>
+                <td title="{{User.PhoneNumber}}" ng-show="ctrl.Display.PhoneNumber" ng-bind="User.PhoneNumber"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="panel-footer">
+        @Html.PanelFooter()
+    </div>
+
+</div>

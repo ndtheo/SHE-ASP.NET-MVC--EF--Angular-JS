@@ -1,0 +1,51 @@
+﻿
+/*#region Set style for the form input elements */
+
+input:not([type='submit']):not([type='checkbox']):not(.form-control),
+select,
+textarea {
+    height: 25px;
+    max-width: 250px;
+    min-width: 250px;
+}
+textarea {
+    height: 50px;
+}
+.form-control {
+    max-width: 280px;
+}
+
+/* Make date the same size as the other inputs*/
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    input[type="date"] {
+        line-height: 18px;
+    }
+}
+
+.PagingSelect {
+    min-width: 35px;
+}
+
+.select-year {
+    min-width: 0 !important;
+    width: 60px !important;
+}
+
+.select-month {
+    min-width: 0 !important;
+    width: 120px !important;
+}
+
+/*#endregion */
+
+
+/*#region Input validation style */
+
+input.ng-invalid,
+select.ng-invalid,
+textarea.ng-invalid {
+    border: 1px solid red;
+}
+
+/*#endregion */

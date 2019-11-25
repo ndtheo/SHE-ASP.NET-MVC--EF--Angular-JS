@@ -1,0 +1,26 @@
+.gantt-table-header {
+    overflow: hidden;
+    position: relative;
+}
+
+.gantt-table-header-row {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.gantt-table-header-row span.gantt-label-text {
+    display: inline-block;
+    font-weight: bold;
+    overflow: hidden;
+    padding-top: 0.5em;
+    text-overflow: clip;
+    white-space: nowrap;
+}
+
+div.gantt-table-content { overflow: hidden; }
+
+.gantt-side-content-table > div.gantt-table-column {
+    display: inline-block;
+    overflow: hidden;
+}

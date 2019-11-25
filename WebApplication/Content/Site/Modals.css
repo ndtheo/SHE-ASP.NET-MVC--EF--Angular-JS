@@ -1,0 +1,41 @@
+﻿
+/*#region Create a larger  modal (xl)*/
+
+@media (min-width: 768px) {
+    .modal-xl {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .modal-xl {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .modal-xl {
+        width: 1170px;
+    }
+}
+
+/*#endregion */
+
+
+/*#region Make Overflow in  dropdown etc visible*/
+
+.modal-body {
+    overflow: visible;
+}
+
+/*#endregion */
+
+
+/*#region fix modal backdrop z-index */
+
+.modal-backdrop {
+    z-index: 1040 !important;
+}
+
+/*#endregion */
+

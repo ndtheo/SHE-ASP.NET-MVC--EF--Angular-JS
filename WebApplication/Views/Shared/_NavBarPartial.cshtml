@@ -1,0 +1,14 @@
+﻿@using WebApplication.VisionToolkit.HtmlHelperExtensions
+@using Core.Entities
+<ul class="nav navbar-nav">
+    @if (Request.IsAuthenticated)
+    {
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="">Application</a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLinkSecure(EntityLabels.INCIDENT, "Index", "Incidents")</li>
+                <li>@Html.ActionLinkSecure(EntityLabels.INCIDENT_TYPE, "Index", "IncidentTypes")</li>
+            </ul>
+        </li>
+    }
+</ul>

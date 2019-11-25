@@ -1,0 +1,63 @@
+﻿@using WebApplication.VisionToolkit.HtmlHelperExtensions
+@model Core.Entities.Incident
+@using Core.Entities
+@Html.ModalHeader(EntityLabels.INCIDENT)
+
+<form class="text-nowrap" novalidate="novalidate" name="AccidentsForm">
+	<div class="form-horizontal">
+        <uib-tabset active="active">
+            <uib-tab index="0" heading="Home">
+                <div class="modal-body">
+                    @*<div class="form-group col-sm-6 col-md-6">
+                        @Html.CustomLabelFor(model => model.In)
+                        <div class="col-md-8">
+                            @Html.CustomDropDownList(model => model.CarId)
+                            @Html.NewRelatedEntityButton("CarId", "Cars")
+                            @Html.EditRelatedEntityButton("CarId", "Cars")
+                            @Html.CustomValidationMessageFor(model => model.CarId)
+                        </div>
+                    </div>*@
+                    <div class="form-group col-sm-6 col-md-6">
+                        @Html.CustomLabelFor(model => model.IncidentTypeId)
+                        <div class="col-md-8">
+                            @Html.CustomDropDownList(model => model.IncidentTypeId)
+                            @Html.NewRelatedEntityButton("IncidentTypeId", "IncidentTypes")
+                            @Html.EditRelatedEntityButton("IncidentTypeId", "IncidentTypes")
+                            @Html.CustomValidationMessageFor(model => model.IncidentTypeId)
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-6">
+                        @Html.CustomLabelFor(model => model.IncidentDate)
+                        <div class="col-md-8">
+                            @Html.CustomEditorFor(model => model.IncidentDate)
+                            @Html.CustomValidationMessageFor(model => model.IncidentDate)
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-6">
+                        @Html.CustomLabelFor(model => model.IncidentTime)
+                        <div class="col-md-8">
+                            @Html.CustomEditorFor(model => model.IncidentTime)
+                            @Html.CustomValidationMessageFor(model => model.IncidentTime)
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-6">
+                        @Html.CustomLabelFor(model => model.Description)
+                        <div class="col-md-8">
+                            @Html.CustomEditorFor(model => model.Description)
+                            @Html.CustomValidationMessageFor(model => model.Description)
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-6">
+                        @Html.CustomLabelFor(model => model.Person)
+                        <div class="col-md-8">
+                            @Html.CustomEditorFor(model => model.Person)
+                            @Html.CustomValidationMessageFor(model => model.Person)
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </uib-tab>
+        </uib-tabset>
+	</div>
+</form>
+

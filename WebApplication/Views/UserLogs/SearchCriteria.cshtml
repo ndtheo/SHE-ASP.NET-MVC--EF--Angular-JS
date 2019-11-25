@@ -1,0 +1,81 @@
+﻿@using WebApplication.VisionToolkit.HtmlHelperExtensions
+@model Database.Models.SearchCriteria.UserLogSearchCriteria
+
+@Html.ModalHeader("User Log Search Criteria", "ctrl.CloseModal()", false)
+
+<form class="text-nowrap" novalidate="novalidate" name="UserLogsSearchForm">  
+	<div class="form-horizontal">
+		<div class="modal-body">
+			<div class="form-group col-md-6">
+				@Html.CustomLabelFor(model => model.UserIDFrom)
+				<div class="col-md-6">
+					@Html.CustomEditorFor(model => model.UserIDFrom)
+					@Html.CustomValidationMessageFor(model => model.UserIDFrom)
+				</div>
+			</div>
+
+			<div class="form-group col-md-6">
+				@Html.CustomLabelFor(model => model.UserIDTo)
+				<div class="col-md-6">
+					@Html.CustomEditorFor(model => model.UserIDTo)
+					@Html.CustomValidationMessageFor(model => model.UserIDTo)
+				</div>
+			</div>
+
+			<div class="form-group col-md-6">
+				@Html.CustomLabelFor(model => model.DateLoginFrom)
+				<div class="col-md-6">
+					@Html.CustomEditorFor(model => model.DateLoginFrom)
+					@Html.CustomValidationMessageFor(model => model.DateLoginFrom)
+				</div>
+			</div>
+
+			<div class="form-group col-md-6">
+				@Html.CustomLabelFor(model => model.DateLoginTo)
+				<div class="col-md-6">
+					@Html.CustomEditorFor(model => model.DateLoginTo)
+					@Html.CustomValidationMessageFor(model => model.DateLoginTo)
+				</div>
+			</div>
+
+			<div class="form-group col-md-6">
+				@Html.CustomLabelFor(model => model.DateLogoutFrom)
+				<div class="col-md-6">
+					@Html.CustomEditorFor(model => model.DateLogoutFrom)
+					@Html.CustomValidationMessageFor(model => model.DateLogoutFrom)
+				</div>
+			</div>
+
+			<div class="form-group col-md-6">
+				@Html.CustomLabelFor(model => model.DateLogoutTo)
+				<div class="col-md-6">
+					@Html.CustomEditorFor(model => model.DateLogoutTo)
+					@Html.CustomValidationMessageFor(model => model.DateLogoutTo)
+				</div>
+			</div>
+
+			<div class="form-group col-sm-6 col-md-6">
+				@Html.CustomLabelFor(model => model.Ip)
+				<div class="col-md-6">
+					@Html.CustomEditorFor(model => model.Ip)
+					@Html.CustomValidationMessageFor(model => model.Ip)
+				</div>
+			</div>
+
+
+			 @Html.Partial("_CreatorSearchCriteriaPartial")
+
+
+		</div>
+		<div class="modal-footer">
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					@Html.ModalSaveAndCloseButton("Search")
+					@Html.ClearSearchCiteriaButton()
+					@Html.ModalCloseButton()
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+

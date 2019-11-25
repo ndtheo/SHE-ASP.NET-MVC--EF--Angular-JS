@@ -1,0 +1,107 @@
+﻿@using WebApplication.VisionToolkit.HtmlHelperExtensions
+@using Core.Entities
+@model IEnumerable<Core.Entities.Incident>
+
+<br />
+<div class="panel panel-default" ng-controller="IncidentsIndexController as ctrl">
+    @{
+        var incidentIdLabel = Html.DisplayNameFor(model => model.Id); 
+    }
+    @{var incidenTypeIdLabel = Html.DisplayNameFor(model => model.IncidentTypeId); }
+    @{var incidentDateLabel = Html.DisplayNameFor(model => model.IncidentDate); }
+    @{var incidentTimeLabel = Html.DisplayNameFor(model => model.IncidentTime); }
+    @{var descriptionLabel = Html.DisplayNameFor(model => model.Description); }
+    @{var personLabel = Html.DisplayNameFor(model => model.Person); }
+    <div class="panel-heading clearfix">
+        <div class="pull-left">
+            <h2 class="panel-title pull-left"><i class="fic glyphicon glyphicon-home"></i> @EntityLabels.INCIDENT</h2>
+            @Html.RefreshGridButton()
+            @Html.NewEntityButton()
+            @Html.DeleteEntityButton()
+            <div class="input-group pull-right" style="max-width: 300px;width:100px;">
+                @Html.ExportGridToExcelButton()
+
+
+                <div class="input-group-btn" uib-dropdown auto-close="outsideClick">
+                    @Html.SelectFieldsButton()
+                    <div class="dropdown-menu dropdown-menu-right" uib-dropdown-menu style="padding-left: 10px">
+                        @*<div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.DamageNo">@Html.DisplayNameFor(model => model.DamageNo)</label></div>
+        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.AccidentType">@Html.DisplayNameFor(model => model.AccidentType.Name)</label></div>
+        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.AccidentDate">@Html.DisplayNameFor(model => model.AccidentDate)</label></div>
+        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.InsuranceNo">@Html.DisplayNameFor(model => model.InsuranceNo)</label></div>
+        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.Location">@Html.DisplayNameFor(model => model.Location)</label></div>
+        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.OrderNo">@Html.DisplayNameFor(model => model.OrderNo)</label></div>
+        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.AssignmentDate">@Html.DisplayNameFor(model => model.AssignmentDate)</label></div>
+        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.Comments">@Html.DisplayNameFor(model => model.Comments)</label></div>*@
+                        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.Id">@incidentIdLabel</label></div>
+                        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.IncidentType">@incidenTypeIdLabel</label></div>
+                        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.IncidentDate">@incidentDateLabel</label></div>
+                        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.IncidentTime">@incidentTimeLabel</label></div>
+                        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.Description">@descriptionLabel</label></div>
+                        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.Person">@personLabel</label></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="input-group pull-right" style="max-width: 300px">
+            <input type="text" class="form-control pull-right" placeholder="Search" ng-model="ctrl.Filter" ng-keyup="$event.keyCode == 13 && ctrl.RefreshGrid()" />
+            <span class="input-group-btn">
+                <button class="btn btn-danger" type="button" ng-click="ctrl.RefreshGrid()"><span class="glyphicon glyphicon-search" title="Quick Search at Accident Code"></span></button>
+            </span>
+
+            @Html.OpenSearchCriteriaButton()
+        </div>
+    </div>
+
+    <div style="overflow-x: scroll">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+                    <th ng-show="ctrl.Display.Id" ng-click="ctrl.ChangeOrderBy('Id')">
+                        @Html.DisplayNameFor(model => model.Id)
+                        @Html.SortIcon("Id")
+                    </th>
+                    <th ng-show="ctrl.Display.IncidentType" ng-click="ctrl.ChangeOrderBy('IncidentType.Name')">
+                        @incidenTypeIdLabel
+                        @Html.SortIcon("IncidentType.Name")
+                    </th>
+                    <th ng-show="ctrl.Display.IncidentDate" ng-click="ctrl.ChangeOrderBy('IncidentDate')">
+                        @incidentDateLabel
+                        @Html.SortIcon("AccidentDate")
+                    </th>
+                    <th ng-show="ctrl.Display.IncidentTime" ng-click="ctrl.ChangeOrderBy('IncidentTime')">
+                        @incidentTimeLabel
+                        @Html.SortIcon("IncidentTime")
+                    </th>
+                    <th ng-show="ctrl.Display.Description" ng-click="ctrl.ChangeOrderBy('Description')">
+                        @descriptionLabel
+                        @Html.SortIcon("Description")
+                    </th>
+                    <th ng-show="ctrl.Display.Person" ng-click="ctrl.ChangeOrderBy('Person')">
+                        @personLabel
+                        @Html.SortIcon("Person")
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="Accident in ctrl.Incidents" ng-click="ctrl.Select(Incident.Id)" ng-dblclick="ctrl.EditEntity(Incident.Id)" ng-class="{active: Incident.Id === ctrl.SelectedId}" style="cursor: pointer;">
+                    <td title="{{Incident.Id}}" ng-show="ctrl.Display.Id" ng-bind="Incident.Id"></td>
+                    <td title="{{Accident.IncidentType.Name}}" ng-show="ctrl.Display.IncidentType" ng-bind="Incident.IncidentType.Name"></td>
+                    <td title="{{Accident.IncidentDate}}" ng-show="ctrl.Display.IncidentDate" ng-bind="Accident.IncidentDate"></td>
+                    <td title="{{Accident.IncidentTime}}" ng-show="ctrl.Display.IncidentTime" ng-bind="Accident.IncidentTime"></td>
+                    <td title="{{Accident.Description}}" ng-show="ctrl.Display.Description" ng-bind="Accident.Description"></td>
+                    <td title="{{Accident.Person}}" ng-show="ctrl.Display.Person" ng-bind="Accident.Person"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    @*<div class="panel-footer">
+        @Html.PanelFooter()
+    </div>*@
+
+</div>
+

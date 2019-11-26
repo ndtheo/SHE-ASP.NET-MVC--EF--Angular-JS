@@ -2,6 +2,7 @@
 
 using Core.Entities;
 using Core.Entities.SearchCriteria;
+using Database.Models.DbContext;
 using System.Linq;
 
 #endregion
@@ -12,7 +13,8 @@ namespace Database.Search
 	{
 		public static IQueryable<Incident> Search(this IQueryable<Incident> incidents, IncidentSearchCriteria searchCriteria)
 		{
-			if(searchCriteria.IncidentTypeId.HasValue)
+            incidents = incidents.IncludeAll();
+            if (searchCriteria.IncidentTypeId.HasValue)
 			{
 				incidents = incidents.Where(x => x.IncidentTypeId == searchCriteria.IncidentTypeId);
 			}

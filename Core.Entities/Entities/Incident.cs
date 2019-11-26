@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Utilities.CustomJsonContractResolver;
 
 namespace Core.Entities
 {
@@ -9,10 +10,10 @@ namespace Core.Entities
     /// </summary>C:\Users\Andreas\Documents\SHE_MVC\Core.Entities\Entities\Incident.cs
     public class Incident : BaseEntity
     {
-        [Display(Name = "Incident Type")]
+        [Display(Name = "Incident Type"), Required]
         public int IncidentTypeId { get; set; }
 
-        [ForeignKey("IncidentTypeId")]
+        [ForeignKey("IncidentTypeId"), JsonGetOnly]
         public IncidentType IncidentType { get; set; }
 
 

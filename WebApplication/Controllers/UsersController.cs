@@ -20,7 +20,6 @@ using WebApplication.Toolkit.Security;
 
 namespace WebApplication.Controllers
 {
-    [RequireRights(View = true)]
     public class UsersController : BaseController
     {
         public ActionResult Index(bool isTab = false)

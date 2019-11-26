@@ -1,13 +1,13 @@
 ﻿@using WebApplication.Toolkit.HtmlHelperExtensions
 @using Core.Entities
-@model IEnumerable<Core.Entities.VehicleType>
+@model IEnumerable<Core.Entities.IncidentType>
 
 <br />
-<div class="panel panel-default" ng-controller="VehicleTypesIndexController as ctrl">
+<div class="panel panel-default" ng-controller="IncidentTypesIndexController as ctrl">
 
     <div class="panel-heading clearfix">
         <div class="pull-left">
-            <h2 class="panel-title pull-left"><i class="fic glyphicon glyphicon-home"></i> @VsLabels.VEHICLE_TYPES</h2>
+            <h2 class="panel-title pull-left"><i class="fic glyphicon glyphicon-home"></i> Incident Types</h2>
             @Html.RefreshGridButton()
             @Html.NewEntityButton()
             @Html.DeleteEntityButton()
@@ -19,18 +19,13 @@
                     @Html.SelectFieldsButton()
                     <div class="dropdown-menu dropdown-menu-right" uib-dropdown-menu style="padding-left: 10px">
                         <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.Name">@Html.DisplayNameFor(model => model.Name)</label></div>
-
-                        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.LastUpdateUser">@Html.DisplayNameFor(model => model.LastUpdateUserId)</label></div>
-                        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.LastUpdateDate">@Html.DisplayNameFor(model => model.LastUpdateDate)</label></div>
-                        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.Creator">@Html.DisplayNameFor(model => model.CreatorId)</label></div>
-                        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.CreationDate">@Html.DisplayNameFor(model => model.CreationDate)</label></div>
                     </div>
                 </div>
 
             </div>
         </div>
         <div class="input-group pull-right" style="max-width: 300px">
-            <input type="text" class="form-control pull-right" placeholder=@VsLabels.SEARCH ng-model="ctrl.Filter" ng-keyup="$event.keyCode == 13 && ctrl.RefreshGrid()" />
+            <input type="text" class="form-control pull-right" placeholder="Search" ng-model="ctrl.Filter" ng-keyup="$event.keyCode == 13 && ctrl.RefreshGrid()" />
             <span class="input-group-btn">
                 <button class="btn btn-danger" type="button" ng-click="ctrl.RefreshGrid()" title="Quick Search at Vehicle Type Name"><span class="glyphicon glyphicon-search"></span></button>
             </span>
@@ -47,32 +42,12 @@
                         @Html.DisplayNameFor(model => model.Name)
                         @Html.SortIcon("Name")
                     </th>
-                    <th ng-show="ctrl.Display.LastUpdateUser" ng-click="ctrl.ChangeOrderBy('LastUpdateUser.Name')">
-                        @Html.DisplayNameFor(model => model.LastUpdateUserId)
-                        @Html.SortIcon("LastUpdateUser.Name")
-                    </th>
-                    <th ng-show="ctrl.Display.LastUpdateDate" ng-click="ctrl.ChangeOrderBy('LastUpdateDate')">
-                        @Html.DisplayNameFor(model => model.LastUpdateDate)
-                        @Html.SortIcon("LastUpdateDate")
-                    </th>
-                    <th ng-show="ctrl.Display.Creator" ng-click="ctrl.ChangeOrderBy('Creator.Name')">
-                        @Html.DisplayNameFor(model => model.CreatorId)
-                        @Html.SortIcon("Creator.Name")
-                    </th>
-                    <th ng-show="ctrl.Display.CreationDate" ng-click="ctrl.ChangeOrderBy('CreationDate')">
-                        @Html.DisplayNameFor(model => model.CreationDate)
-                        @Html.SortIcon("CreationDate")
-                    </th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr ng-repeat="VehicleType in ctrl.VehicleTypes" ng-click="ctrl.Select(VehicleType.Id)" ng-dblclick="ctrl.EditEntity(VehicleType.Id)" ng-class="{active: VehicleType.Id === ctrl.SelectedId}" style="cursor: pointer;">
-                    <td title="{{VehicleType.Name}}" ng-show="ctrl.Display.Name" ng-bind="VehicleType.Name"></td>
-                    <td title="{{VehicleType.LastUpdateUserName}}" ng-show="ctrl.Display.LastUpdateUser" ng-bind="VehicleType.LastUpdateUserName"></td>
-                    <td title="{{VehicleType.LastUpdateDate | visionDate}}" ng-show="ctrl.Display.LastUpdateDate" ng-bind="VehicleType.LastUpdateDate | visionDate"></td>
-                    <td title="{{VehicleType.CreatorName}}" ng-show="ctrl.Display.Creator" ng-bind="VehicleType.CreatorName"></td>
-                    <td title="{{VehicleType.CreationDate | visionDate}}" ng-show="ctrl.Display.CreationDate" ng-bind="VehicleType.CreationDate | visionDate"></td>
+                <tr ng-repeat="IncidentType in ctrl.IncidentTypes" ng-click="ctrl.Select(IncidentType.Id)" ng-dblclick="ctrl.EditEntity(IncidentType.Id)" ng-class="{active: IncidentType.Id === ctrl.SelectedId}" style="cursor: pointer;">
+                    <td title="{{IncidentType.Name}}" ng-show="ctrl.Display.Name" ng-bind="IncidentType.Name"></td>
                 </tr>
             </tbody>
         </table>

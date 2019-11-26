@@ -24,13 +24,6 @@ namespace WebApplication.Toolkit.Security
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class RequireRightsAttribute : FilterAttribute, IAuthenticationFilter
     {
-        public bool View { get; set; }
-        public bool Create { get; set; }
-        public bool Edit { get; set; }
-        public bool Delete { get; set; }
-        public bool Export { get; set; }
-        public bool SeesOnlyOwnRecords { get; set; }
-
         /// <summary>
         ///     Authenticates the request.
         /// </summary>

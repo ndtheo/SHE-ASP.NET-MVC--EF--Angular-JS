@@ -17,7 +17,7 @@ abstract class BaseIndexController implements angular.IController
         protected database: Database)
     {
         this.setDefaultValues();
-        this.SearchCriteria.PageSize = VisionToolkit.tryGetPageSize(this.SearchCriteria.PageSize);
+        this.SearchCriteria.PageSize = Toolkit.tryGetPageSize(this.SearchCriteria.PageSize);
     }
 
     private setDefaultValues() {
@@ -31,17 +31,17 @@ abstract class BaseIndexController implements angular.IController
     }
 
     protected NewEntity(): void {
-        const modalInstance = VisionToolkit.openDetailsPanel(this.$uibModal, this.controllerName, 0, VisionToolkit.getParentId(this.$scope));
+        const modalInstance = Toolkit.openDetailsPanel(this.$uibModal, this.controllerName, 0, Toolkit.getParentId(this.$scope));
         modalInstance.result.then(() => this.RefreshGrid(), () => this.RefreshGrid());
     }
 
     protected EditEntity(id: number | string) {
-        const modalInstance = VisionToolkit.openDetailsPanel(this.$uibModal, this.controllerName, id);
+        const modalInstance = Toolkit.openDetailsPanel(this.$uibModal, this.controllerName, id);
         modalInstance.result.then(() => this.RefreshGrid(), () => this.RefreshGrid());
     }
 
     protected OpenSearchCriteria() {
-        const modalInstance = VisionToolkit.openSearchCriteria(this.controllerName, this.SearchCriteria, this.$uibModal);
+        const modalInstance = Toolkit.openSearchCriteria(this.controllerName, this.SearchCriteria, this.$uibModal);
         this.Filter = null;
         modalInstance.result.then(criteria => {
             this.SearchCriteria = criteria;
@@ -58,12 +58,12 @@ abstract class BaseIndexController implements angular.IController
     }
 
     protected ChangeOrderBy = (order: string) => {
-        this.SearchCriteria.OrderBy = VisionToolkit.getOrderBy(this.SearchCriteria.OrderBy, order);
+        this.SearchCriteria.OrderBy = Toolkit.getOrderBy(this.SearchCriteria.OrderBy, order);
         this.RefreshGrid();
     }
 
     protected RefreshGrid() {
-        VisionToolkit.trySetPageSize(this.SearchCriteria.PageSize);
+        Toolkit.trySetPageSize(this.SearchCriteria.PageSize);
         this.beforeRefreshGrid();
         this.SearchCriteria.Filter = this.Filter;
         this.database.Search(this.controllerName, this.SearchCriteria, (response) => this.afterSuccessfullSearch(response));
@@ -71,7 +71,7 @@ abstract class BaseIndexController implements angular.IController
 
     protected afterSuccessfullSearch(response) {
         this[this.controllerName] = response.data.Data;
-        this.Pages = VisionToolkit.getPages(response.data);
+        this.Pages = Toolkit.getPages(response.data);
         this.TotalRecords = response.data.TotalRecords;
         this.SelectedId = null;
     };

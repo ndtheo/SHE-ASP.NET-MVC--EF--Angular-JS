@@ -3,7 +3,7 @@
     public static $inject = ["$rootScope", "visionLoader", "sheAlert"];
     private readonly  defaultTitle = "SHE CRUD system";
 
-    constructor(private readonly $rootScope: ng.IRootScopeService, private readonly visionLoader: VisionLoader, private readonly sheAlert: SheAlert) {
+    constructor(private readonly $rootScope: ng.IRootScopeService, private readonly loader: Loader, private readonly sheAlert: SheAlert) {
 
         $rootScope.title = this.defaultTitle;
         $rootScope.onAjax = false;
@@ -32,12 +32,12 @@
 
     private onAjaxStart = () => {
         this.$rootScope.onAjax = true;
-        this.visionLoader.show();
+        this.loader.show();
     }
 
     private onAjaxStop = () => {
         this.$rootScope.onAjax = false;
-        this.visionLoader.hide();
+        this.loader.hide();
     }
 }
 

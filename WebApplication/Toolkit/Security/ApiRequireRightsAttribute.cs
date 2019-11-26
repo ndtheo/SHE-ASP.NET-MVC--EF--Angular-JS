@@ -12,11 +12,11 @@ using Core.Entities;
 using Database;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using WebApplication.VisionToolkit.ExtensionMethods;
+using WebApplication.Toolkit.ExtensionMethods;
 
 #endregion
 
-namespace WebApplication.VisionToolkit.Security
+namespace WebApplication.Toolkit.Security
 {
     // Usage: [RequireRights(Create=true, Delete=true)] ,  over an action.
     /// <summary>

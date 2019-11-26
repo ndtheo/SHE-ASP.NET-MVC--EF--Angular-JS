@@ -18,31 +18,8 @@ class UsersIndexController extends BaseIndexController {
     }
 
     public beforeRefreshGrid(): void {
-        this.SearchCriteria.RoleId = VisionToolkit.getParentId(this.$scope, this.SearchCriteria.RoleId);
+        this.SearchCriteria.RoleId = Toolkit.getParentId(this.$scope, this.SearchCriteria.RoleId);
     }
-
-    public AddUserToRole() {
-        const modalInstance = VisionToolkit.openAddExistingPanel(this.$uibModal, this.controllerName, VisionToolkit.getParentId(this.$scope));
-        var roleName = VisionToolkit.getParentName(this.$scope);
-
-        modalInstance.result.then(userId => {
-            VisionToolkit.addUserToRole(this.$http, userId, roleName,
-                () => {
-                    this.sheAlert.success("Role added to user");
-                    this.RefreshGrid();
-                });
-        });
-    }
-
-    public RemoveUserFromRole() {
-        const roleName = VisionToolkit.getParentName(this.$scope);
-        VisionToolkit.removeUserFromRole(this.$http, this.SelectedId, roleName,
-            () => {
-                this.sheAlert.success("Role removed from user");
-                this.RefreshGrid();
-            });
-    };
-
 }
 
 

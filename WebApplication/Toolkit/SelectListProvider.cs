@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Web.Mvc;
 using Utilities.Extensions;
-using WebApplication.VisionToolkit.ExtensionMethods;
+using WebApplication.Toolkit.ExtensionMethods;
 
-namespace WebApplication.VisionToolkit
+namespace WebApplication.Toolkit
 {
     public static class SelectListProvider
     {

@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.Ajax.Utilities;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
-using Core.Entities;
-using Microsoft.Ajax.Utilities;
 
-namespace WebApplication.VisionToolkit.HtmlHelperExtensions {
+namespace WebApplication.Toolkit.HtmlHelperExtensions
+{
     public static class Buttons {
             /// <summary>
             ///     <para>
@@ -151,7 +150,7 @@ namespace WebApplication.VisionToolkit.HtmlHelperExtensions {
             return new MvcHtmlString(button.ToString());
         }
 
-        public static IHtmlString NewEntityButton(this HtmlHelper html, string label = "", IDictionary<string, object> attributes = null)
+        public static IHtmlString NewEntityButton(this HtmlHelper html, string label = "Add New", IDictionary<string, object> attributes = null)
         {
             var i = new TagBuilder("i");
             i.AddCssClass("fic glyphicon glyphicon-plus-sign");

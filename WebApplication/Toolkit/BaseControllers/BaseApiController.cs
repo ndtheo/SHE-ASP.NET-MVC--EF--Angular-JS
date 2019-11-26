@@ -6,7 +6,7 @@ using Core.Entities;
 using Database.Models.DbContext;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using WebApplication.VisionToolkit;
+using WebApplication.Toolkit;
 
 #endregion
 

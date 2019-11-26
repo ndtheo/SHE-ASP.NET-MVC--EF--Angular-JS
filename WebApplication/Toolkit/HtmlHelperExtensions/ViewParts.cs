@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 #endregion
 
-namespace WebApplication.VisionToolkit.HtmlHelperExtensions
+namespace WebApplication.Toolkit.HtmlHelperExtensions
 {
     /// <summary>
     ///     Contains extention method for the htmlhelper class, with security and rights cheking.

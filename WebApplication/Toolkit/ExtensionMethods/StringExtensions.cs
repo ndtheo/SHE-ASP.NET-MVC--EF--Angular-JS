@@ -8,7 +8,7 @@ using Utilities.Extensions;
 
 #endregion
 
-namespace WebApplication.VisionToolkit.ExtensionMethods
+namespace WebApplication.Toolkit.ExtensionMethods
 {
     /// <summary>Extension methods for the <see cref="string" /> class</summary>
     public static class StringExtensions

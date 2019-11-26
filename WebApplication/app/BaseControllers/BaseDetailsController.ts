@@ -38,12 +38,12 @@ abstract class BaseDetailsController {
 	}
 
 	protected NewRelatedEntity(elementId, controller, parentVarName = null, arrayName = null, labelProperty = "Name") {
-		const parentId = VisionToolkit.getFromNullableIndex(this.model, parentVarName);
-		VisionToolkit.newRelatedObject(this.$scope, this.$uibModal, elementId, controller, `${this.controllerName}Form`, parentId, arrayName, labelProperty);
+		const parentId = Toolkit.getFromNullableIndex(this.model, parentVarName);
+		Toolkit.newRelatedObject(this.$scope, this.$uibModal, elementId, controller, `${this.controllerName}Form`, parentId, arrayName, labelProperty);
 	}
 
 	protected EditRelatedEntity(elementId, controller, labelProperty = "Name") {
-		VisionToolkit.editRelatedObject(this.$scope, this.$uibModal, elementId, controller, labelProperty);
+		Toolkit.editRelatedObject(this.$scope, this.$uibModal, elementId, controller, labelProperty);
 	}
 
 	protected Save() {

@@ -56,4 +56,4 @@ class SheAlert {
     }
 }
 
-myApp.service("visionAlert", SheAlert);
+myApp.service("sheAlert", SheAlert);

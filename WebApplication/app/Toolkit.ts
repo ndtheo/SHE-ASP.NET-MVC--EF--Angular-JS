@@ -1,17 +1,9 @@
-﻿class VisionToolkit {
+﻿class Toolkit {
 
     public static trySetPageSize(pageSize) {
-      //  if (localStorage) localStorage.pageSize = pageSize;
     }
 
     public static tryGetPageSize(defaultPageSize) {
-        //if (!localStorage || !localStorage.pageSize) return defaultPageSize;
-
-        //if (localStorage.pageSize == "All") {
-        //    return  "All";
-        //} else {
-        //    return  parseInt(localStorage.pageSize);
-        //}
         return "All";
     }
 
@@ -33,14 +25,14 @@
         });
 
         modalInstance.result.then(newOption => {
-            VisionToolkit.selectAddSelectedOption(newOption, elementId, $scope, formController, arrayName, labelProperty);
+            Toolkit.selectAddSelectedOption(newOption, elementId, $scope, formController, arrayName, labelProperty);
         });
     }
 
     // ========== Select Add Selected Option =================================================================================
     public static selectAddSelectedOption(option, selectId, scope, formController, arrayName = null, labelProperty) {
         if (arrayName == null) {
-            VisionToolkit.selectAddOptionInDom(option, selectId, labelProperty);
+            Toolkit.selectAddOptionInDom(option, selectId, labelProperty);
         } else {
             const index = arrayName;
             scope.ctrl[index].push(option);
@@ -57,7 +49,7 @@
         opt.label = option[labelProperty];
         opt.selected = true;
         select.appendChild(opt);
-        VisionToolkit.sortSelectOptions(select);
+        Toolkit.sortSelectOptions(select);
     }
 
     // ========== Edit Related Object =======================================================================================
@@ -78,7 +70,7 @@
                 }
             }
         });
-        modalInstance.result.then(option => { VisionToolkit.selectUpdateSelectedOption(option, elementId, labelProperty); });
+        modalInstance.result.then(option => { Toolkit.selectUpdateSelectedOption(option, elementId, labelProperty); });
     }
 
     // ========== Select Update Selected Option =============================================================================
@@ -212,45 +204,6 @@
         return;
     }
 
-    // ========== Add User To Role ==========================================================================================
-    public static addUserToRole($http: ng.IHttpService, userId: string, roleId: string, successCallback: Function = null, errorCallback: Function = null) {
-        const model = { UserID: userId, RoleId: roleId };
-        $http.post("../Roles/AddUserToRole", model)
-            .then(response => {
-                    if (successCallback != null) {
-                        successCallback(response.data);
-                    }
-                },
-                response => {
-                    if (errorCallback != null) {
-                        errorCallback(response);
-                    }
-                });
-    }
-
-    // ========== Remove User From Role =====================================================================================
-    public static removeUserFromRole($http: ng.IHttpService, userId: string, roleId: string, successCallback: Function = null, errorCallback: Function = null): void {
-        var model = { UserID: userId, RoleId: roleId };
-        $http.post("../Roles/RemoveUserFromRole", model)
-            .then(response => {
-                    if (successCallback != null) {
-                        successCallback(response.data);
-                    }
-                },
-                response => {
-                    if (errorCallback != null) {
-                        errorCallback(response);
-                    }
-                });
-    }
-
-    // ========== Add Days ==================================================================================================
-    public static addDays(date: string, days: number) {
-        days--;
-        const result = new Date(date);
-        result.setDate(result.getDate() + days);
-        return result;
-    }
 
     // ========== Has Value =================================================================================================
     public static hasValue(variable) {
@@ -269,7 +222,7 @@
 
     public static clearMultiselect(multiselect, selected) {
         for (let j = 0; j < selected.length; j++) {
-            multiselect = VisionToolkit.removeByAttr(multiselect, "Id", selected[j].Id);
+            multiselect = Toolkit.removeByAttr(multiselect, "Id", selected[j].Id);
         }
         return multiselect;
     }

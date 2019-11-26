@@ -10,9 +10,9 @@ using Database.Models.DbContext;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Utilities;
-using WebApplication.VisionToolkit;
-using WebApplication.VisionToolkit.ExtensionMethods;
-using WebApplication.VisionToolkit.Security;
+using WebApplication.Toolkit;
+using WebApplication.Toolkit.ExtensionMethods;
+using WebApplication.Toolkit.Security;
 
 #endregion
 

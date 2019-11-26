@@ -11,10 +11,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication.Toolkit.BaseControllers;
-using WebApplication.VisionToolkit;
-using WebApplication.VisionToolkit.ExtensionMethods;
-using WebApplication.VisionToolkit.Models;
-using WebApplication.VisionToolkit.Security;
+using WebApplication.Toolkit;
+using WebApplication.Toolkit.ExtensionMethods;
+using WebApplication.Toolkit.Models;
+using WebApplication.Toolkit.Security;
 
 #endregion
 

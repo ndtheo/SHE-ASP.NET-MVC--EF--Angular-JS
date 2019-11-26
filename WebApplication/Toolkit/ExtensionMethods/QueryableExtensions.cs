@@ -11,7 +11,7 @@ using Utilities.Extensions;
 
 #endregion
 
-namespace WebApplication.VisionToolkit.ExtensionMethods
+namespace WebApplication.Toolkit.ExtensionMethods
 {
     /// <summary>Extension methods for the <see cref="IQueryable{T}" /> interface.</summary>
     public static class QueryableExtensions

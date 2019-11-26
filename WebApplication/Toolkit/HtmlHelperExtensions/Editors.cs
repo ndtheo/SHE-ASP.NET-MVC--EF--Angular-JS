@@ -12,7 +12,7 @@ using Utilities.Extensions;
 
 #endregion
 
-namespace WebApplication.VisionToolkit.HtmlHelperExtensions
+namespace WebApplication.Toolkit.HtmlHelperExtensions
 {
     public static class Editors
     {

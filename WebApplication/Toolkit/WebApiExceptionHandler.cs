@@ -9,7 +9,7 @@ using Utilities;
 
 #endregion
 
-namespace WebApplication.VisionToolkit
+namespace WebApplication.Toolkit
 {
     [AttributeUsage(AttributeTargets.All)]
     internal class WebApiExceptionHandler : ActionFilterAttribute

@@ -8,7 +8,7 @@ using Newtonsoft.Json.Converters;
 
 #endregion
 
-namespace WebApplication.VisionToolkit
+namespace WebApplication.Toolkit
 {
     /// <summary>Custom json serializer for use with the mvc controller for using the same dateformat as the WebApi.</summary>
     public class CustomJsonResult : JsonResult

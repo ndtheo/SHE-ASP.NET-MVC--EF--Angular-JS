@@ -1,5 +1,5 @@
 ﻿
-class VisionLoader {
+class Loader {
 
     public static $inject = ["$loading"];
 
@@ -26,4 +26,4 @@ class VisionLoader {
 }
 
 
-myApp.service("visionLoader", VisionLoader);
+myApp.service("loader", Loader);

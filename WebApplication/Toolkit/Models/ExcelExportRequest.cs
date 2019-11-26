@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace WebApplication.VisionToolkit.Models
+namespace WebApplication.Toolkit.Models
 {
     public class ExcelExportRequest<T, TV>
     {

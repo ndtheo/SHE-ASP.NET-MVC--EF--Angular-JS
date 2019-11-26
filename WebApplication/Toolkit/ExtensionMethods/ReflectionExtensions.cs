@@ -6,7 +6,7 @@ using System.Reflection;
 
 #endregion
 
-namespace WebApplication.VisionToolkit.ExtensionMethods
+namespace WebApplication.Toolkit.ExtensionMethods
 {
     internal static class ReflectionExtensions
     {

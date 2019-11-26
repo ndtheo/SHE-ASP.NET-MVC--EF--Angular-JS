@@ -9,7 +9,7 @@ using Database.Models.DbContext;
 
 #endregion
 
-namespace WebApplication.VisionToolkit.Security
+namespace WebApplication.Toolkit.Security
 {
     public static class SecurityExtensions
     {

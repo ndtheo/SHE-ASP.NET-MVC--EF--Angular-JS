@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 #endregion
 
-namespace WebApplication.VisionToolkit.ExtensionMethods
+namespace WebApplication.Toolkit.ExtensionMethods
 {
     public static class DictionaryToSelectListExtensions
     {

@@ -13,7 +13,7 @@ using Database.Models.DbContext;
 
 #endregion
 
-namespace WebApplication.VisionToolkit.HtmlHelperExtensions
+namespace WebApplication.Toolkit.HtmlHelperExtensions
 {
     public static class Helpers
     { 

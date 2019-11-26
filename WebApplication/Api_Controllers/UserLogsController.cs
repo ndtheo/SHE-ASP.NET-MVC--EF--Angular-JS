@@ -8,7 +8,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using Core.Entities;
 using WebApplication.BaseControllers;
-using WebApplication.VisionToolkit.Security;
+using WebApplication.Toolkit.Security;
 
 #endregion
 

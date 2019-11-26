@@ -77,7 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\MigrationHelper.cs" />
     <Compile Include="Models\DbContext\IncidentsDataContext.cs" />
     <Compile Include="Models\DbContext\FluentApi.cs" />
     <Compile Include="Models\DbContext\ModelQueryIncludes.cs" />
@@ -107,8 +106,6 @@
       <Name>Core.Entities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

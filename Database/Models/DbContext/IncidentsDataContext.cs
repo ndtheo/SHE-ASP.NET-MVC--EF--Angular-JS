@@ -1,14 +1,11 @@
 #region Using Directives
 
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System.Reflection;
 using Core.Entities;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.Linq;
 
 #endregion
 
@@ -16,11 +13,7 @@ namespace Database.Models.DbContext
 {
     public  partial class IncidentsDataContext : IdentityDbContext<User> //Microsoft.EntityFrameworkCore.DbContext
     {
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    //optionsBuilder.UseSqlServer(
-        //    //    @"Server=localhost;Database=PrimeXM;Integrated Security=True");
-        //}
+
     }
 
     public partial class IncidentsDataContext : IdentityDbContext<User>

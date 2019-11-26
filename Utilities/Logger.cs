@@ -3,13 +3,14 @@
 using System;
 using System.IO;
 using System.Web;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 #endregion
 
 namespace Utilities
 {
+    /// <summary>
+    /// We could utilize log4net, which has multiple capabilities.
+    /// </summary>
     public static class Log
     {
         private static string Path { get; }

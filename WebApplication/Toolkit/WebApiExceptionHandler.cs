@@ -5,7 +5,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
-using Utilities;
 
 #endregion
 
@@ -14,6 +13,8 @@ namespace WebApplication.Toolkit
     [AttributeUsage(AttributeTargets.All)]
     internal class WebApiExceptionHandler : ActionFilterAttribute
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
 
         /// <summary>Occurs before the action method is invoked.</summary>
         /// <param name="actionContext">The action context.</param>
@@ -28,9 +29,9 @@ namespace WebApplication.Toolkit
             if (actionExecutedContext.Exception == null)
                 return;
 
-            Log.Exception(actionExecutedContext.Exception);
+            log.Error(actionExecutedContext.Exception);
 
-            var innerMessage = actionExecutedContext.Exception.GetInnerExceptionMessage();
+            var innerMessage = actionExecutedContext.Exception.InnerException?.Message;
 
             actionExecutedContext.Response = new HttpResponseMessage
             {

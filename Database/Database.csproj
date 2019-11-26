@@ -78,7 +78,7 @@
   <ItemGroup>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\MigrationHelper.cs" />
-    <Compile Include="Models\DbContext\ApplicationDbContext.cs" />
+    <Compile Include="Models\DbContext\IncidentsDataContext.cs" />
     <Compile Include="Models\DbContext\FluentApi.cs" />
     <Compile Include="Models\DbContext\ModelQueryIncludes.cs" />
     <Compile Include="Models\Display\DisplayIncident.cs" />

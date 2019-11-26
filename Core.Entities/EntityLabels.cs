@@ -8,5 +8,9 @@
         public const string INCIDENT_TYPE = "Incident Type";
         public const string INCIDENT = "Incident";
         public const string INCIDENTS = "Incidents";
+
+        public const string SEARCH_CRITERIA = "Search Criteria";
+        public const string SEARCH = "Search";
+
     }
 }

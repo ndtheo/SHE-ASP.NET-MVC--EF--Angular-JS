@@ -1,8 +1,8 @@
 ﻿@using WebApplication.Toolkit.HtmlHelperExtensions
-@model Database.Models.SearchCriteria.VehicleTypeSearchCriteria
+@model Database.Models.SearchCriteria.IncidentTypeSearchCriteria
 @using Core.Entities
 
-@Html.ModalHeader(VsLabels.VEHICLE_TYPE + " " + VsLabels.SEARCH_CRITERIA, "ctrl.CloseModal()", false)
+@Html.ModalHeader(EntityLabels.INCIDENT_TYPE + " " + EntityLabels.SEARCH_CRITERIA, "ctrl.CloseModal()", false)
 
 <form class="text-nowrap" novalidate="novalidate" name="VehicleTypesSearchForm">
     <div class="form-horizontal">
@@ -21,7 +21,7 @@
         <div class="modal-footer">
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    @Html.ModalSaveAndCloseButton(VsLabels.SEARCH)
+                    @Html.ModalSaveAndCloseButton(EntityLabels.SEARCH)
                     @Html.ClearSearchCiteriaButton()
                     @Html.ModalCloseButton()
                 </div>

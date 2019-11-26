@@ -8,13 +8,12 @@ using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
 using WebApplication.BaseControllers;
-using WebApplication.Toolkit.Security;
 
 #endregion
 
 namespace WebApplication.Api_Controllers
 {
-	public class IncidentTypesController : BaseApiController
+    public class IncidentTypesController : BaseApiController
 	{
 		// GET api/AccidentTypes
 		public IQueryable<IncidentType> GetAccidentTypes() => this.db.IncidentTypes;

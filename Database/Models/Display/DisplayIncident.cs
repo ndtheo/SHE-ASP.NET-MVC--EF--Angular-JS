@@ -1,6 +1,6 @@
 ﻿namespace Database.Models.Display
 {
-	public class DisplayIncident 
+    public class DisplayIncident 
 	{
         public DisplayIncident()
         {

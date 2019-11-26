@@ -1,13 +1,12 @@
 ﻿#region Using Directives
 
+using Core.Entities;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Filters;
-using Core.Entities;
-using Database;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using WebApplication.Toolkit.ExtensionMethods;
 
 #endregion
@@ -42,11 +41,6 @@ namespace WebApplication.Toolkit.Security
         /// </summary>
         /// <param name="filterContext">The context to use for the authentication challenge.</param>
         public void OnAuthenticationChallenge(AuthenticationChallengeContext filterContext) {}
-
-        //public bool GetMenuSeeOnlyOwnRecordsRight(AuthenticationContext filterContext)
-        //{
-        //    var user = GetUser(filterContext);
-        //}
 
         private static User GetUser(AuthenticationContext filterContext)
         {

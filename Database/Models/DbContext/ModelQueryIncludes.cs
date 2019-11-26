@@ -1,8 +1,8 @@
 ﻿#region Using Directives
 
+using Core.Entities;
 using System.Data.Entity;
 using System.Linq;
-using Core.Entities;
 
 #endregion
 

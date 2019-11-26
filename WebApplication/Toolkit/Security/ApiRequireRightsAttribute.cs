@@ -1,18 +1,9 @@
 ﻿#region Using Directives
 
 using System;
-using System.Net;
-using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http.Filters;
-using System.Web.Http.Results;
-using Core.Entities;
-using Database;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using WebApplication.Toolkit.ExtensionMethods;
 
 #endregion
 

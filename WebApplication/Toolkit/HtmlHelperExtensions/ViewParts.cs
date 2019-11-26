@@ -13,7 +13,7 @@ using System.Web.UI.WebControls;
 namespace WebApplication.Toolkit.HtmlHelperExtensions
 {
     /// <summary>
-    ///     Contains extention method for the htmlhelper class, with security and rights cheking.
+    ///     Contains extention methods for the <see cref="HtmlHelper">  regarding the rest of View parts (headers, links etc).
     /// </summary>
     public static class ViewParts
     {
@@ -90,42 +90,6 @@ namespace WebApplication.Toolkit.HtmlHelperExtensions
             return new MvcHtmlString(footer);
         }
 
-        //public static IHtmlString TabPage(this HtmlHelper html, int index, string controller, bool parentHasStringId = false, string tabHeader = null, bool userParentId=false)
-        //{
-        //    string check = string.Empty;
-        //    check = parentHasStringId ? "ctrl.Id" : "ctrl.Id > 0";
-
-        //    tabHeader = tabHeader ?? controller;
-
-        //    var tab = $@"<uib-tab ng-show='{check}' index = '{index}' heading = '{tabHeader}' >" +
-        //                 $"<div ng-include = \"'../{controller}?isTab=true'\" ></div>" + // Is tab is used so that the index will not use a layout file
-        //                 "</uib-tab>";
-        //    return new MvcHtmlString(tab);
-        //}
-        //public static IHtmlString TabPage(this HtmlHelper html, int index, string controller,string action, bool parentHasStringId = false, string tabHeader = null, bool userParentId = false)
-        //{
-        //    var rights = html.GetRights(controller);
-
-        //    if (rights == null || !rights.Any(r => r.View)) return null;
-        //    string check = string.Empty;
-        //    check = parentHasStringId ? "ctrl.Id" : "ctrl.Id > 0";
-
-        //    tabHeader = tabHeader ?? controller;
-
-        //    var tab = $@"<uib-tab ng-show='{check}' index = '{index}' heading = '{tabHeader}' >" +
-        //                 $"<div ng-include = \"'../{controller}/{action}?isTab=true'\" ></div>" + // Is tab is used so that the index will not use a layout file
-        //                 "</uib-tab>";
-        //    return new MvcHtmlString(tab);
-        //}
-        public static List<MenuItem> GetAvailableMenuItems<TModel>(this HtmlHelper<TModel> html)
-        {
-            //var menuItems = ((List<Right>) html.ViewBag.UserRights)?
-            //    .Where(r => r.View)
-            //    .Select(r => r.MenuItem)
-            //    .DistinctBy(m => m.Id);
-            //return menuItems?.ToList() ?? new List<MenuItem>();
-            return null;
-        }
 
         #region Helper Methods
 

@@ -14,6 +14,18 @@ using Utilities.Extensions;
 
 namespace WebApplication.Toolkit.HtmlHelperExtensions
 {
+    /// <summary>
+    /// This class creates custom HTML controls (inputs, selects, text areas etc) adding suitable
+    /// attributes (such as date time pickers, required validation) where applicable.
+    /// 
+    /// Methods are extensions methods of <see cref="HtmlHelper"/> class.
+    /// 
+    /// Through this class, we could facilitate scaffolding, since the type of a property will automatically have
+    /// changes in the control's behavior in the GUI.
+    /// 
+    /// Furthermore, through these methods, we could implement field-related rights for the application (hiding/disabling) 
+    /// fields for a particular user or role in the future. 
+    /// </summary>
     public static class Editors
     {
         /// <summary>
@@ -52,6 +64,17 @@ namespace WebApplication.Toolkit.HtmlHelperExtensions
             });
         }
 
+        /// <summary>
+        /// Custom Text Area for larger inputs.
+        /// </summary>
+        /// <typeparam name="TModel"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <param name="html"></param>
+        /// <param name="expression"></param>
+        /// <param name="disabled"></param>
+        /// <param name="attributes"></param>
+        /// <param name="autofocus"></param>
+        /// <returns></returns>
         public static IHtmlString CustomTextAreaFor<TModel, TValue>(this HtmlHelper<TModel> html, Expression<Func<TModel, TValue>> expression, bool disabled = false, IDictionary<string, object> attributes = null, bool autofocus = false)
         {
             ClearNull(ref attributes);
@@ -76,14 +99,6 @@ namespace WebApplication.Toolkit.HtmlHelperExtensions
             AddDisabledAttribute(html, attributes);
             AddConvertToNumberAttribute<TProperty>(attributes);
 
-            var propertyName = GetSelectListValuesName(expression);
-            if (!string.IsNullOrWhiteSpace(propertyName))
-            {
-                if (propertyName.StartsWith("Car.CarModelId"))
-                {
-                    attributes.Add("disabled", "disabled");
-                }
-            }
             return html.TextBoxFor(expression, new { htmlAttributes = attributes });
         }
        
@@ -102,7 +117,6 @@ namespace WebApplication.Toolkit.HtmlHelperExtensions
             ClearNull(ref attributes);
             AddAngularNgModelAttribute(expression, attributes);
             AddRequiredAttribute(expression, attributes);
-            AddDisabledAttribute(html, attributes);
             AddConvertToNumberAttribute<TProperty>(attributes);
 
             var propertyName = GetSelectListValuesName(expression);
@@ -122,12 +136,11 @@ namespace WebApplication.Toolkit.HtmlHelperExtensions
         public static IHtmlString CustomLabelFor<TModel, TValue>(this HtmlHelper<TModel> html, Expression<Func<TModel, TValue>> expression)
         {
             var label = html.LabelFor(expression, new { @class = "col-md-4 control-label" });
-            return label;//html.LabelFor(expression, new { @class = "col-md-4 control-label" });
+            return label;
         }
 
         public static IHtmlString CustomValidationMessageFor<TModel, TProperty>(this HtmlHelper<TModel> html, Expression<Func<TModel, TProperty>> expression)
         {
-            //return html.ValidationMessageFor(expression);
             string ctrl = html.ViewBag.ControllerName;
             var propName = expression.Body.ToString().Replace("model.", "");
             var propDisplayName = typeof(TModel).GetSubProperty(propName).GetDisplayName();
@@ -200,6 +213,7 @@ namespace WebApplication.Toolkit.HtmlHelperExtensions
             attributes?.Add("min", range.Minimum);
             attributes?.Add("max", range.Maximum);
         }
+
         private static void AddStringLengthAttributes<TModel, TValue>(Expression<Func<TModel, TValue>> expression, IDictionary<string, object> attributes)
         {
             var range = expression.GetStringLengthAttribute();
@@ -208,11 +222,26 @@ namespace WebApplication.Toolkit.HtmlHelperExtensions
             attributes?.Add("minlength", range.MinimumLength);
             attributes?.Add("maxlength", range.MaximumLength);
         }
+
         private static void AddDataTypeAttributes<TModel, TValue>(Expression<Func<TModel, TValue>> expression, IDictionary<string, object> attributesToAdd)
         {
             string field = expression.ToString();
             var dataType = expression.GetDataTypeAttribute();
-            if (dataType is null) return;
+            if (field.EndsWith("Date"))
+            {
+                attributesToAdd?.Add("type", "date");
+                dataType = new DataTypeAttribute(DataType.Date); 
+            }
+            else if (field.EndsWith("Time"))
+            {
+                attributesToAdd?.Add("type", "time");
+                dataType = new DataTypeAttribute(DataType.Time);
+            }
+            else
+            {
+                dataType = expression.GetDataTypeAttribute();
+                if (dataType is null) return;
+            }
 
             AddDataTypeAttributes(attributesToAdd, dataType);
             AddCustomDataTypeAttributes(attributesToAdd, dataType);
@@ -220,7 +249,7 @@ namespace WebApplication.Toolkit.HtmlHelperExtensions
 
         private static void AddDataTypeAttributes(IDictionary<string, object> attributesToAdd, DataTypeAttribute dataType)
         {
-            if (dataType.DataType == DataType.Date)
+            if (dataType.DataType == DataType.Date && attributesToAdd!=null && !attributesToAdd.ContainsKey("type"))
             {
                 attributesToAdd?.Add("type", "date");
             }
@@ -238,6 +267,9 @@ namespace WebApplication.Toolkit.HtmlHelperExtensions
                 case nameof(Int32):
                     attributesToAdd?.Add("type", "text");
                     attributesToAdd?.Add("number", "");
+                    break;
+                case nameof(DateTime):
+                    attributesToAdd?.Add("type", "date");
                     break;
                 default:
                     break;

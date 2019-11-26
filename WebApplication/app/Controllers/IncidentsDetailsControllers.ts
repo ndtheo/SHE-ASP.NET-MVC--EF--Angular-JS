@@ -5,7 +5,7 @@ class IncidentsDetailsController extends BaseDetailsController {
     $onInit() { }
     public currentAccidentCar;
     public cars: Array<{ Id, Name }> = [];
-    public experts: Array<{ Id, Name }> = [];
+    public incidentTypes: Array<{ Id, Name }> = [];
     constructor($scope: ng.IScope, $uibModal: ng.ui.bootstrap.IModalService, $uibModalInstance: ng.ui.bootstrap.IModalServiceInstance, database: Database, documents: Documents, id, parentId, private $http: ng.IHttpService, private sheAlert: SheAlert) {
         super("Incidents", $scope, $uibModal, $uibModalInstance, database, documents, id, parentId);
         this.model.IncidentDate = new Date(this.model.IncidentDate);
@@ -16,16 +16,16 @@ class IncidentsDetailsController extends BaseDetailsController {
 
     public GetIncidentTypes() {
         if (!this.model.Id) {
-            this.experts = [];
+            this.incidentTypes = [];
             return;
         }
 
         this.$http.get<Array<{ Id, Name }>>(`../Incidents/GetIncidentTypes`)
             .then(response => {
-                this.experts = response.data;
+                this.incidentTypes = response.data;
             },
                 response => {
-                    this.sheAlert.error("There was an error loading cars");
+                    this.sheAlert.error("There was an error loading incidents");
                 });
 	}
 

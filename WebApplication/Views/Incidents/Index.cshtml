@@ -87,13 +87,13 @@
             </thead>
 
             <tbody>
-                <tr ng-repeat="Accident in ctrl.Incidents" ng-click="ctrl.Select(Incident.Id)" ng-dblclick="ctrl.EditEntity(Incident.Id)" ng-class="{active: Incident.Id === ctrl.SelectedId}" style="cursor: pointer;">
+                <tr ng-repeat="Incident in ctrl.Incidents" ng-click="ctrl.Select(Incident.Id)" ng-dblclick="ctrl.EditEntity(Incident.Id)" ng-class="{active: Incident.Id === ctrl.SelectedId}" style="cursor: pointer;">
                     <td title="{{Incident.Id}}" ng-show="ctrl.Display.Id" ng-bind="Incident.Id"></td>
-                    <td title="{{Accident.IncidentType.Name}}" ng-show="ctrl.Display.IncidentType" ng-bind="Incident.IncidentType.Name"></td>
-                    <td title="{{Accident.IncidentDate}}" ng-show="ctrl.Display.IncidentDate" ng-bind="Accident.IncidentDate"></td>
-                    <td title="{{Accident.IncidentTime}}" ng-show="ctrl.Display.IncidentTime" ng-bind="Accident.IncidentTime"></td>
-                    <td title="{{Accident.Description}}" ng-show="ctrl.Display.Description" ng-bind="Accident.Description"></td>
-                    <td title="{{Accident.Person}}" ng-show="ctrl.Display.Person" ng-bind="Accident.Person"></td>
+                    <td title="{{Incident.IncidentType.Name}}" ng-show="ctrl.Display.IncidentType" ng-bind="Incident.IncidentType.Name"></td>
+                    <td title="{{Incident.IncidentDate}}" ng-show="ctrl.Display.IncidentDate" ng-bind="Incident.IncidentDate"></td>
+                    <td title="{{Incident.IncidentTime}}" ng-show="ctrl.Display.IncidentTime" ng-bind="Incident.IncidentTime"></td>
+                    <td title="{{Incident.Description}}" ng-show="ctrl.Display.Description" ng-bind="Incident.Description"></td>
+                    <td title="{{Incident.Person}}" ng-show="ctrl.Display.Person" ng-bind="Incident.Person"></td>
                 </tr>
             </tbody>
         </table>
@@ -102,6 +102,5 @@
     @*<div class="panel-footer">
         @Html.PanelFooter()
     </div>*@
-
 </div>
 

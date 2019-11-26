@@ -8,19 +8,12 @@ class IncidentsIndexController extends BaseIndexController {
     }
 
     public setupController() {
-		this.Display.AccidentType = true;
-		this.Display.Creator = true;
-		this.Display.LastUpdateUser = true;
-		this.Display.AccidentDate = true;
-		this.Display.InsuranceNo = true;
-		this.Display.Location = true;
-		this.Display.OrderNo = true;
-		this.Display.AssignmentDate = true;
-		this.Display.DamageNo = true;
-		this.Display.Comments = true;
-		this.Display.CreationDate = true;
-		this.Display.LastUpdateDate = true;
-	
+		this.Display.IncidentType = true;
+		this.Display.IncidentDate = true;
+		this.Display.IncidentTime = true;
+		this.Display.Description = true;
+		this.Display.Person = true;
+		this.Display.Id = true;
     }
 
     public beforeRefreshGrid() {

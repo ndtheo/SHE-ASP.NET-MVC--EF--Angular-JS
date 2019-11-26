@@ -25,12 +25,12 @@ namespace WebApplication.Api_Controllers
 		[ResponseType(typeof(Incident))]
 		public IHttpActionResult GetIncident(int id)
 		{
-			var accident = this.db.Incidents.Find(id);
+			var incident = this.db.Incidents.Find(id);
 
-			if (accident == null)
+			if (incident == null)
 				return this.NotFound();
 
-			return this.Ok(accident);
+			return this.Ok(incident);
 		}
 
 
@@ -52,9 +52,9 @@ namespace WebApplication.Api_Controllers
             return errorMessage;
         }
 
-        private void validateIncident(Incident accident)
+        private void validateIncident(Incident incident)
         {
-            string errorMessage = this.GetValidationErrorMessage(accident);
+            string errorMessage = this.GetValidationErrorMessage(incident);
             if (!string.IsNullOrWhiteSpace(errorMessage))
             {
                 throw new System.Exception(errorMessage);
@@ -90,16 +90,16 @@ namespace WebApplication.Api_Controllers
 
 		// POST api/Accidents, Create
 		[ResponseType(typeof(Incident))]
-		public IHttpActionResult PostIncident(Incident accident)
+		public IHttpActionResult PostIncident(Incident incident)
 		{
 			if (!this.ModelState.IsValid)
 				return this.BadRequest(this.ModelState);
 
-            this.validateIncident(accident);
-            this.db.Incidents.Add(accident);
+            this.validateIncident(incident);
+            this.db.Incidents.Add(incident);
             this.db.SaveChanges(this.UserId);
 
-			return this.CreatedAtRoute("DefaultApi", new { id = accident.Id }, accident);
+			return this.CreatedAtRoute("DefaultApi", new { id = incident.Id }, incident);
 		}
 
 		// DELETE api/Accidents/5

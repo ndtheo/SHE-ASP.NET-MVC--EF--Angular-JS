@@ -66,7 +66,7 @@ class Database {
     public Load(controllerName: string, id, successCallback?: Function, errorCallback?: Function): void {
         this.$http.get(`../api/${controllerName}/${id}`)
             .then(response => {
-                response.data = this.cleanUpResponseData(response.data);
+                //response.data = this.cleanUpResponseData(response.data);
                 if (successCallback != null) {
                     successCallback(response.data);
                 }
@@ -173,31 +173,7 @@ class Database {
         }
     }
 
-    private cleanUpResponseData(data) {
-        data.CreationDate = this.parseDate(data.CreationDate);
-        data.LastUpdateDate = this.parseDate(data.LastUpdateDate);
-		data.AccidentDate = this.parseDate(data.AccidentDate);
-		data.AssignmentDate = this.parseDate(data.AssignmentDate);
-		data.ReleaseDate = this.parseDate(data.ReleaseDate);
-		data.ManufacturingDate = this.parseDate(data.ManufacturingDate);
-		data.AutopsyDate1 = this.parseDate(data.AutopsyDate1);
-		data.AutopsyDate2 = this.parseDate(data.AutopsyDate2);
-		data.AutopsyDate3 = this.parseDate(data.AutopsyDate3);
-		data.ReportDate = this.parseDate(data.ReportDate);
-		data.DateLogin = this.parseDate(data.DateLogin);
-		data.DateLogout = this.parseDate(data.DateLogout);
-        data.ReleaseDateInternational = this.parseDate(data.ReleaseDateInternational);
-		if(data.hasOwnProperty('Accident')){
-			data.Accident.AccidentDate = this.parseDate(data.Accident.AccidentDate);
-			data.Accident.AssignmentDate = this.parseDate(data.Accident.AssignmentDate);
-		}
-        if (data.hasOwnProperty('Car') && data.Car!=null) {
-			data.Car.ReleaseDate = this.parseDate(data.Car.ReleaseDate);
-			data.Car.ManufacturingDate = this.parseDate(data.Car.ManufacturingDate);
-			data.Car.ReleaseDateInternational = this.parseDate(data.Car.ReleaseDateInternational);
-		}
-        return data;
-    };
+
 
     // Drop the hour from the date
     private cleanObjectForSave(model) {

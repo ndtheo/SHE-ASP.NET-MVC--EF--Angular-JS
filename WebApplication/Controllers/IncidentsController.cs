@@ -87,8 +87,8 @@ namespace WebApplication.Controllers
 
         private void SetForeignKeys()
 		{
-			this.ViewBag.IncidentTypesId = new SelectList(this.db.IncidentTypes.OrderBy(x => x.Name), "Id", "Name");
-			//this.ViewBag.CreatorId = new SelectList(this.db.Users.OrderBy(x => x.Name), "Id", "Name");
-			this.ViewBag.LastUpdateUserId = new SelectList(this.db.Users.OrderBy(x => x.Name), "Id", "Name");        }
-    }
+			this.ViewBag.IncidentTypeId = new SelectList(this.db.IncidentTypes.OrderBy(x => x.Name), "Id", "Name");
+            var incidentTypes = this.db.IncidentTypes;
+        }
+    }   
 }

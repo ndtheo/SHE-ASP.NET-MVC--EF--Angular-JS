@@ -39,7 +39,7 @@ namespace WebApplication.Toolkit.HtmlHelperExtensions
             ClearNull(ref attributes);
             AddAngularNgModelAttribute(expression, attributes);
             AddRequiredAttribute(expression, attributes);
-            AddDisabledAttribute(html, attributes, disabled);
+            //AddDisabledAttribute(html, attributes, disabled);
             AddDataTypeAttributes(expression, attributes);
             AddRangeAttributes(expression, attributes);
             AddStringLengthAttributes(expression, attributes);
@@ -81,49 +81,15 @@ namespace WebApplication.Toolkit.HtmlHelperExtensions
             {
                 if (propertyName.StartsWith("Car.CarModelId"))
                 {
-                    //propertyName = propertyName.Replace("Car.", "");
                     attributes.Add("disabled", "disabled");
-                    //attributes.Add(new { disabled = "disabled", @readonly = "readonly" });
                 }
             }
             return html.TextBoxFor(expression, new { htmlAttributes = attributes });
         }
-        public static IHtmlString CustomDropDownListDisabled<TModel, TProperty>(this HtmlHelper<TModel> html, Expression<Func<TModel, TProperty>> expression, IDictionary<string, object> attributes = null)
-        {
-            ClearNull(ref attributes);
-            AddAngularNgModelAttribute(expression, attributes);
-            AddRequiredAttribute(expression, attributes);
-            attributes.Add("disabled", "disabled");
-            AddConvertToNumberAttribute<TProperty>(attributes);
-
-            var propertyName = GetSelectListValuesName(expression);
-
-            if (!string.IsNullOrWhiteSpace(propertyName))
-            {
-                if (propertyName.StartsWith("Car."))
-                {
-                    propertyName = propertyName.Replace("Car.", "");
-                }
-                else if (propertyName.SequenceEqual("Accident.AccidentTypeId"))
-                {
-                    propertyName = propertyName.Replace("Accident.AccidentTypeId", "AccidentTypeId");
-                }
-                if (propertyName.SequenceEqual("CarModel.VehicleTypeId"))
-                {
-                    propertyName = propertyName.Replace("CarModel.VehicleTypeId", "VehicleTypeId");
-                }
-                else if (propertyName.SequenceEqual("CarModel.VehicleCategoryId"))
-                {
-                    propertyName = propertyName.Replace("CarModel.VehicleCategoryId", "VehicleCategoryId");
-                }
-            }
-
-            return html.DropDownList(propertyName, null, String.Empty, attributes);
-        }
        
         /// <summary>
         ///     Returns an HTML dropdown list
-        ///     additional view data. If the user does not have edit right it is disabled.
+        ///     additional view data.
         /// </summary>
         /// <param name="html">This is the web page</param>
         /// <param name="expression">Contains the field</param>
@@ -143,50 +109,15 @@ namespace WebApplication.Toolkit.HtmlHelperExtensions
 
             if (!string.IsNullOrWhiteSpace(propertyName))
             {
-                if (propertyName.StartsWith("Car."))
+                if (propertyName.SequenceEqual("Incident.IncidentTypeId"))
                 {
-                    propertyName = propertyName.Replace("Car.", "");
-                }
-                else if (propertyName.SequenceEqual("Accident.AccidentTypeId"))
-                {
-                    propertyName = propertyName.Replace("Accident.AccidentTypeId", "AccidentTypeId");
-                }
-                else if (propertyName.SequenceEqual("CarModel.VehicleTypeId"))
-                {
-                    propertyName = propertyName.Replace("CarModel.VehicleTypeId", "VehicleTypeId");
-                }
-                else if (propertyName.SequenceEqual("RepairShop.CityId"))
-                {
-                    propertyName = propertyName.Replace("RepairShop.CityId", "CityId");
+                    propertyName = propertyName.Replace("Incident.IncidentTypeId", "IncidentTypeId");
                 }
             }
 
             return html.DropDownList(propertyName, null, String.Empty, attributes);
         }
 
-        /// <summary>
-        ///     Returns a disabled textbox that displays the uploaded file's name
-        /// </summary>
-        /// <param name="html"></param>
-        /// <param name="propertyName"></param>
-        /// <returns></returns>
-        public static IHtmlString DocumentName(this HtmlHelper html, string propertyName)
-        {
-            var textBox = $"<input type='text' disabled='disabled' ng-model='ctrl.model.{propertyName}.Name'/>";
-            return new MvcHtmlString(textBox);
-        }
-
-        /// <summary>
-        ///     Returns a disabled textbox that displays the uploaded file's name
-        /// </summary>
-        /// <param name="html"></param>
-        /// <param name="propertyName"></param>
-        /// <returns></returns>
-        public static IHtmlString ChildDocumentName(this HtmlHelper html, string propertyName, string childEntity)
-        {
-            var textBox = $"<input type='text' disabled='disabled' ng-model='ctrl.model.{childEntity}.{propertyName}.Name'/>";
-            return new MvcHtmlString(textBox);
-        }
 
         public static IHtmlString CustomLabelFor<TModel, TValue>(this HtmlHelper<TModel> html, Expression<Func<TModel, TValue>> expression)
         {
@@ -201,16 +132,6 @@ namespace WebApplication.Toolkit.HtmlHelperExtensions
             var propName = expression.Body.ToString().Replace("model.", "");
             var propDisplayName = typeof(TModel).GetSubProperty(propName).GetDisplayName();
 
-            //string processedPropName = string.Empty;
-            //if (!string.IsNullOrWhiteSpace(propName) && propName.Contains("."))
-            //{
-            //    string[] splitted = propName.Split('.');
-            //    if (splitted.Length == 2)
-            //    {
-            //        processedPropName = propName.Split('.').ElementAt(1);
-            //    }
-            //    else Debug.Assert(false);
-            //}
             string controllerFormAndPropertyName = $"{ctrl}Form.{propName}.";
 
             // TODO: check if everything is needed, in order to save bandwidth

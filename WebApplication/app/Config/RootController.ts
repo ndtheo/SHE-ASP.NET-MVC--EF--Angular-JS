@@ -1,6 +1,6 @@
 ﻿class RootController {
 
-    public static $inject = ["$rootScope", "visionLoader", "sheAlert"];
+    public static $inject = ["$rootScope", "loader", "sheAlert"];
     private readonly  defaultTitle = "SHE CRUD system";
 
     constructor(private readonly $rootScope: ng.IRootScopeService, private readonly loader: Loader, private readonly sheAlert: SheAlert) {

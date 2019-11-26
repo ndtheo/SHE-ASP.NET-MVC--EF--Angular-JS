@@ -29,11 +29,6 @@ namespace WebApplication.VisionToolkit.Security
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public sealed class ApiRequireRightsAttribute : FilterAttribute, IAuthenticationFilter
     {
-        public bool View { get; set; }
-        public bool Create { get; set; }
-        public bool Edit { get; set; }
-        public bool Delete { get; set; }
-        public bool Export { get; set; }
 
         /// <summary>
         ///     Authenticates the request.
@@ -45,41 +40,12 @@ namespace WebApplication.VisionToolkit.Security
         /// <param name="cancellationToken">The token to monitor for cancellation requests.</param>
         public async Task AuthenticateAsync(HttpAuthenticationContext filterContext, CancellationToken cancellationToken)
         {
-            var user = await GetUser();
-
-            if (this.HasAuthorization(user, filterContext)) return;
-
-            filterContext.ErrorResult = new StatusCodeResult(HttpStatusCode.Forbidden, filterContext.Request);
+            return;
         }
 
         public async Task ChallengeAsync(HttpAuthenticationChallengeContext context, CancellationToken cancellationToken)
         {
             await Task.Run(() => { }, cancellationToken); // just to stop the warning (async method should have an await operator)
         }
-
-        private static async Task<User> GetUser()
-        {
-            return await HttpContext.Current.GetOwinContext()
-                .GetUserManager<ApplicationUserManager>()
-                .FindByIdAsync(CurrentUserId);
-        }
-
-        private bool HasAuthorization(User user, HttpAuthenticationContext filterContext)
-        {
-            var controllerName = GetCurrentControllerName(filterContext);
-            return IdentityUserIsAuthenticated();
-        }
-
-        private static string GetCurrentControllerName(HttpAuthenticationContext filterContext)
-        {
-            return filterContext.Request.GetActionDescriptor().ControllerDescriptor.ControllerType.GetControllerName();
-        }
-
-        private static bool IdentityUserIsAuthenticated()
-        {
-            return HttpContext.Current.User.Identity.IsAuthenticated;
-        }
-
-        private static string CurrentUserId => HttpContext.Current.User.Identity.GetUserId();
     }
 }

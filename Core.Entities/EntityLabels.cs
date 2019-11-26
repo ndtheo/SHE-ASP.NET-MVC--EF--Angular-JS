@@ -7,5 +7,6 @@
     {
         public const string INCIDENT_TYPE = "Incident Type";
         public const string INCIDENT = "Incident";
+        public const string INCIDENTS = "Incidents";
     }
 }

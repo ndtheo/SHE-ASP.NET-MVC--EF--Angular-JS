@@ -18,7 +18,6 @@ namespace WebApplication
         public static void RegisterWebApiFilters(HttpFilterCollection filters)
         {
             // Logs Exceptions and Returns web messages
-           // filters.Add(new WebApiExceptionHandler());
             filters.Add(new System.Web.Http.AuthorizeAttribute());
         }
     }

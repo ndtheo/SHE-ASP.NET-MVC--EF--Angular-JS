@@ -50,37 +50,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="PageTests\AccidentCarsTests.cs" />
-    <Compile Include="PageTests\AccidentPhotosTests.cs" />
-    <Compile Include="PageTests\AccidentsTests.cs" />
-    <Compile Include="PageTests\AccidentTypesTests.cs" />
-    <Compile Include="PageTests\ActivitiesTests.cs" />
-    <Compile Include="PageTests\CarBrandsTests.cs" />
-    <Compile Include="PageTests\CarConditionsTests.cs" />
-    <Compile Include="PageTests\CarModelsTests.cs" />
-    <Compile Include="PageTests\CarsTests.cs" />
-    <Compile Include="PageTests\CitiesTests.cs" />
-    <Compile Include="PageTests\ColorsTests.cs" />
-    <Compile Include="PageTests\CountriesTests.cs" />
-    <Compile Include="PageTests\DamageCategoriesTests.cs" />
-    <Compile Include="PageTests\DamagesTests.cs" />
-    <Compile Include="PageTests\ExpertsTests.cs" />
-    <Compile Include="PageTests\FuelTypesTests.cs" />
-    <Compile Include="PageTests\InsuranceCompaniesTests.cs" />
-    <Compile Include="PageTests\MenuItemsTests.cs" />
-    <Compile Include="PageTests\PersonsTests.cs" />
-    <Compile Include="PageTests\RepairShopsTests.cs" />
-    <Compile Include="PageTests\RepairTypesTests.cs" />
-    <Compile Include="PageTests\ReportsTests.cs" />
-    <Compile Include="PageTests\ReportTypesTests.cs" />
-    <Compile Include="PageTests\RightsTests.cs" />
-    <Compile Include="PageTests\RolesTests.cs" />
-    <Compile Include="PageTests\TaxOfficesTests.cs" />
-    <Compile Include="PageTests\TireConditionsTests.cs" />
-    <Compile Include="PageTests\UserLogsTests.cs" />
-    <Compile Include="PageTests\UsersTests.cs" />
-    <Compile Include="PageTests\VehicleIconReportClicksTests.cs" />
-    <Compile Include="PageTests\VehicleTypesTests.cs" />
+    <Compile Include="PageTests\IncidentTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -92,9 +62,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="WorkflowTests\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

@@ -16,14 +16,13 @@ using WebApplication.VisionToolkit.Security;
 
 namespace WebApplication.Api_Controllers
 {
-    [ApiRequireRights(View = true)]
 	public class IncidentsController : BaseApiController
 	{
 		// GET api/Accidents
 		public IQueryable<Incident> GetIncidents() => this.db.Incidents;
 
 		// GET api/Accidents/5
-		[ResponseType(typeof(Incident)), ApiRequireRights(View = true)]
+		[ResponseType(typeof(Incident))]
 		public IHttpActionResult GetIncident(int id)
 		{
 			var accident = this.db.Incidents.Find(id);
@@ -64,7 +63,6 @@ namespace WebApplication.Api_Controllers
 
 
         // PUT api/Incidents/5, Update
-        [ApiRequireRights(Edit = true)]
 		public IHttpActionResult PutIncident(int id, Incident incident)
 		{
 			if (!this.ModelState.IsValid)
@@ -91,7 +89,7 @@ namespace WebApplication.Api_Controllers
 		}
 
 		// POST api/Accidents, Create
-		[ResponseType(typeof(Incident)), ApiRequireRights(Create = true)]
+		[ResponseType(typeof(Incident))]
 		public IHttpActionResult PostIncident(Incident accident)
 		{
 			if (!this.ModelState.IsValid)
@@ -105,7 +103,7 @@ namespace WebApplication.Api_Controllers
 		}
 
 		// DELETE api/Accidents/5
-		[ResponseType(typeof(Incident)), ApiRequireRights(Delete = true)]
+		[ResponseType(typeof(Incident))]
 		public IHttpActionResult DeleteIncident(int id)
 		{
 			var incident = this.db.Incidents.Find(id);

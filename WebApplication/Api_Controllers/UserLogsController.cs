@@ -14,14 +14,13 @@ using WebApplication.VisionToolkit.Security;
 
 namespace WebApplication.Api_Controllers
 {
-	[ApiRequireRights(View = true)]
 	public class UserLogsController : BaseApiController
 	{
 		// GET api/UserLogs
 		public IQueryable<UserLog> GetUserLogs() => this.db.UserLogs;
 
 		// GET api/UserLogs/5
-		[ResponseType(typeof(UserLog)), ApiRequireRights(View = true)]
+		[ResponseType(typeof(UserLog))]
 		public IHttpActionResult GetUserLog(int id)
 		{
 			var userlog = this.db.UserLogs.Find(id);
@@ -33,7 +32,6 @@ namespace WebApplication.Api_Controllers
 		}
 
 		// PUT api/UserLogs/5
-		[ApiRequireRights(Edit = true)]
 		public IHttpActionResult PutUserLog(int id, UserLog userlog)
 		{
 			if (!this.ModelState.IsValid)
@@ -59,7 +57,7 @@ namespace WebApplication.Api_Controllers
 		}
 
 		// POST api/UserLogs
-		[ResponseType(typeof(UserLog)), ApiRequireRights(Create = true)]
+		[ResponseType(typeof(UserLog))]
 		public IHttpActionResult PostUserLog(UserLog userlog)
 		{
 			if (!this.ModelState.IsValid)
@@ -72,7 +70,7 @@ namespace WebApplication.Api_Controllers
 		}
 
 		// DELETE api/UserLogs/5
-		[ResponseType(typeof(UserLog)), ApiRequireRights(Delete = true)]
+		[ResponseType(typeof(UserLog))]
 		public IHttpActionResult DeleteUserLog(int id)
 		{
 			var userlog = this.db.UserLogs.Find(id);

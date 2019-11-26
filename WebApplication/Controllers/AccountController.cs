@@ -1,15 +1,14 @@
 ﻿#region Using Directives
 
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
 using Core.Entities;
 using Database.Models.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 #endregion
 
@@ -47,13 +46,9 @@ namespace WebApplication.Controllers
         public ActionResult Login(string returnUrl)
         {
             this.ViewBag.ReturnUrl = returnUrl;
-            if (string.IsNullOrEmpty(returnUrl))
+            if (string.IsNullOrEmpty(returnUrl) || returnUrl == "/")
             {
-                this.ViewBag.ReturnUrl = "/#/Reports";
-            }
-            else if (returnUrl == "/")
-            {
-                this.ViewBag.ReturnUrl = "/#/Reports";
+                this.ViewBag.ReturnUrl = "/#/Incidents";
             }
             return this.View();
         }
@@ -159,9 +154,6 @@ namespace WebApplication.Controllers
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return this.RedirectToAction("Index", "Home");
                 }

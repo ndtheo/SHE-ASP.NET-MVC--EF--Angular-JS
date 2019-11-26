@@ -17,11 +17,10 @@ namespace WebApplication.Api_Controllers
     public class UsersController : BaseApiController
     {
         // GET api/Users
-        [ApiRequireRights(View = true)]
         public IQueryable<User> GetUsers() => this.db.Users;
 
         // GET api/Users/5
-        [ResponseType(typeof(User)), ApiRequireRights(View = true)]
+        [ResponseType(typeof(User))]
         public IHttpActionResult GetUser(string id)
         {
             var user = this.db.Users.Find(id);
@@ -33,7 +32,6 @@ namespace WebApplication.Api_Controllers
         }
 
         // PUT api/Users/5
-        [ApiRequireRights(Edit = true)]
         public IHttpActionResult PutUser(string id, User user)
         {
             if (!this.ModelState.IsValid)
@@ -59,7 +57,7 @@ namespace WebApplication.Api_Controllers
         }
 
         // POST api/Users
-        [ResponseType(typeof(User)), ApiRequireRights(Create = true)]
+        [ResponseType(typeof(User))]
         public IHttpActionResult PostUser(User user)
         {
             if (!this.ModelState.IsValid)
@@ -75,7 +73,7 @@ namespace WebApplication.Api_Controllers
         }
 
         // DELETE api/Users/5
-        [ResponseType(typeof(User)), ApiRequireRights(Delete = true)]
+        [ResponseType(typeof(User))]
         public IHttpActionResult DeleteUser(string id)
         {
             var user = this.db.Users.Find(id);
@@ -83,7 +81,6 @@ namespace WebApplication.Api_Controllers
             if (user == null)
                 return this.NotFound();
 
-            //DatabaseHelper.DeleteUser(user,this.UserId);
             this.db.Users.Remove(user);
             this.db.SaveChanges(this.UserId);
 

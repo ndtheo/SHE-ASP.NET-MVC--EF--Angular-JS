@@ -16,29 +16,12 @@ using Database.Models.DbContext;
 namespace WebApplication.VisionToolkit.HtmlHelperExtensions
 {
     public static class Helpers
-    {
-        /// <summary>
-        ///     Returns the Rights of this user for the current controller. The current controller name and the UserRights are
-        ///     assigned in the base controller before the action gets executed
-        /// </summary>
-        /// <param name="html"></param>
-        /// <returns></returns>
-        //public static List<Right> GetRights(this HtmlHelper html)
-        //{
-        //    return html.GetRights((string) html.ViewBag.ControllerName);
-        //}
+    { 
 
         public static string ControllerName(this HtmlHelper html)
         {
             return (string) html?.ViewBag?.ControllerName ?? "";
         }
-
-        //public static MvcHtmlString YesNo(this HtmlHelper htmlHelper, bool yesNo)
-        //{
-        //    var text = yesNo ? "Yes" : "No";
-        //    return new MvcHtmlString(text);
-        //}
-
 
         /// <summary>
         ///     True if the htmlhelper has to check rights for edit. EditMode is assigned in most of the details actions.

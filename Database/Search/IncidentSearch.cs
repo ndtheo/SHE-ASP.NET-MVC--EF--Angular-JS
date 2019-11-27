@@ -34,6 +34,12 @@ namespace Database.Search
             {
                 incidents = incidents.Where(x => x.Person.Contains(searchCriteria.Person));
             }
+
+            if (!string.IsNullOrWhiteSpace(searchCriteria.Location))
+            {
+                incidents = incidents.Where(x => x.Person.Contains(searchCriteria.Person));
+            }
+
             return  incidents;
 		}
 	}

@@ -6,49 +6,56 @@
 
 <form class="text-nowrap" novalidate="novalidate" name="IncidentsSearchForm">  
 	<div class="form-horizontal">
-		<div class="modal-body">
-			<div class="form-group col-md-6">
-				@Html.CustomLabelFor(model => model.IncidentTypeId)
-				<div class="col-md-6">
-					@Html.CustomDropDownList(model => model.IncidentTypeId)
-					@Html.CustomValidationMessageFor(model => model.IncidentTypeId)
-				</div>
-			</div>
+        <div class="modal-body">
+            <div class="form-group col-md-6">
+                @Html.CustomLabelFor(model => model.IncidentTypeId)
+                <div class="col-md-6">
+                    @Html.CustomDropDownList(model => model.IncidentTypeId)
+                    @Html.CustomValidationMessageFor(model => model.IncidentTypeId)
+                </div>
+            </div>
 
-			<div class="form-group col-md-6">
-				@Html.CustomLabelFor(model => model.IncidentDateFrom)
-				<div class="col-md-6">
-					@Html.CustomEditorFor(model => model.IncidentDateFrom)
-					@Html.CustomValidationMessageFor(model => model.IncidentDateFrom)
-				</div>
-			</div>
+            <div class="form-group col-md-6">
+                @Html.CustomLabelFor(model => model.IncidentDateFrom)
+                <div class="col-md-6">
+                    @Html.CustomEditorFor(model => model.IncidentDateFrom)
+                    @Html.CustomValidationMessageFor(model => model.IncidentDateFrom)
+                </div>
+            </div>
 
-			<div class="form-group col-md-6">
-				@Html.CustomLabelFor(model => model.IncidentDateTo)
-				<div class="col-md-6">
-					@Html.CustomEditorFor(model => model.IncidentDateTo)
-					@Html.CustomValidationMessageFor(model => model.IncidentDateTo)
-				</div>
-			</div>
+            <div class="form-group col-md-6">
+                @Html.CustomLabelFor(model => model.IncidentDateTo)
+                <div class="col-md-6">
+                    @Html.CustomEditorFor(model => model.IncidentDateTo)
+                    @Html.CustomValidationMessageFor(model => model.IncidentDateTo)
+                </div>
+            </div>
 
-			<div class="form-group col-sm-6 col-md-6">
-				@Html.CustomLabelFor(model => model.Description)
-				<div class="col-md-6">
-					@Html.CustomEditorFor(model => model.Description)
-					@Html.CustomValidationMessageFor(model => model.Description)
-				</div>
-			</div>
+            <div class="form-group col-sm-6 col-md-6">
+                @Html.CustomLabelFor(model => model.Description)
+                <div class="col-md-6">
+                    @Html.CustomEditorFor(model => model.Description)
+                    @Html.CustomValidationMessageFor(model => model.Description)
+                </div>
+            </div>
 
-			<div class="form-group col-sm-6 col-md-6">
-				@Html.CustomLabelFor(model => model.Person)
-				<div class="col-md-6">
-					@Html.CustomEditorFor(model => model.Person)
-					@Html.CustomValidationMessageFor(model => model.Person)
-				</div>
-			</div>
+            <div class="form-group col-sm-6 col-md-6">
+                @Html.CustomLabelFor(model => model.Person)
+                <div class="col-md-6">
+                    @Html.CustomEditorFor(model => model.Person)
+                    @Html.CustomValidationMessageFor(model => model.Person)
+                </div>
+            </div>
 
 
-		</div>
+            <div class="form-group col-sm-6 col-md-6">
+                @Html.CustomLabelFor(model => model.Location)
+                <div class="col-md-6">
+                    @Html.CustomEditorFor(model => model.Location)
+                    @Html.CustomValidationMessageFor(model => model.Location)
+                </div>
+            </div>
+        </div>
 		<div class="modal-footer">
 			<div class="form-group">
 				<div class="col-md-offset-2 col-md-10">

@@ -31,6 +31,7 @@
                         <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.IncidentTime">@incidentTimeLabel</label></div>
                         <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.Description">@descriptionLabel</label></div>
                         <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.Person">@personLabel</label></div>
+                        <div class="checkbox"><label><input type="checkbox" ng-model="ctrl.Display.Location">@personLabel</label></div>
                     </div>
                 </div>
             </div>
@@ -75,6 +76,10 @@
                         @personLabel
                         @Html.SortIcon("Person")
                     </th>
+                    <th ng-show="ctrl.Display.Person" ng-click="ctrl.ChangeOrderBy('Location')">
+                        @personLabel
+                        @Html.SortIcon("Location")
+                    </th>
                 </tr>
             </thead>
 
@@ -86,6 +91,7 @@
                     <td title="{{Incident.IncidentTime}}" ng-show="ctrl.Display.IncidentTime" ng-bind="Incident.IncidentTime"></td>
                     <td title="{{Incident.Description}}" ng-show="ctrl.Display.Description" ng-bind="Incident.Description"></td>
                     <td title="{{Incident.Person}}" ng-show="ctrl.Display.Person" ng-bind="Incident.Person"></td>
+                    <td title="{{Incident.Location}}" ng-show="ctrl.Display.Location" ng-bind="Incident.Location"></td>
                 </tr>
             </tbody>
         </table>

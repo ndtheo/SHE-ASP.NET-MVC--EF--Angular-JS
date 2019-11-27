@@ -21,5 +21,6 @@ namespace Core.Entities.SearchCriteria
         public DateTime? IncidentTimeTo { get; set; }
         public string Description { get; set; }
         public string Person { get; set; }
+        public string Location { get; set; }
     }
 }

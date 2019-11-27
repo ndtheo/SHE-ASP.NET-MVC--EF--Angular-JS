@@ -61,6 +61,15 @@ namespace WebApplication.Api_Controllers
             }
         }
 
+        /// <summary>
+        /// Create automatically 2 audits whenever an incident is reported.
+        /// </summary>
+        /// <param name="incident"></param>
+        /// <returns></returns>
+        private bool AddAudits(Incident incident)
+        {
+
+        }
 
         // PUT api/Incidents/5, Update
 		public IHttpActionResult PutIncident(int id, Incident incident)

@@ -13,7 +13,8 @@ class IncidentsIndexController extends BaseIndexController {
 		this.Display.IncidentTime = true;
 		this.Display.Description = true;
 		this.Display.Person = true;
-		this.Display.Id = true;
+        this.Display.Id = true;
+        this.Display.Location = true;
     }
 
     public beforeRefreshGrid() {

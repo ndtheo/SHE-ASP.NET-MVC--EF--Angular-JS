@@ -14,7 +14,6 @@ class IncidentsDetailsController extends BaseDetailsController {
     }
 
     protected afterLoad() {
-        //this.GetIncidentTypes();
         if (this.model.IncidentDate != null) {
             this.model.IncidentDate = new Date(this.model.IncidentDate);
         }

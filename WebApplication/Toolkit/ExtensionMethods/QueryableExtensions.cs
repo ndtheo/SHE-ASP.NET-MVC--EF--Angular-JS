@@ -1,13 +1,9 @@
 #region Using Directives
 
-using System.Diagnostics;
+using Core.Entities.SearchCriteria;
+using Database.Models.ViewModels;
 using System.Linq;
 using System.Linq.Dynamic;
-using Core.Entities;
-using Core.Entities.SearchCriteria;
-using Database;
-using Database.Models.ViewModels;
-using Utilities.Extensions;
 
 #endregion
 
@@ -50,7 +46,7 @@ namespace WebApplication.Toolkit.ExtensionMethods
                 TotalRecords = data?.Count() ?? 0
             };
             string orderProperty = criteria.OrderBy.Split(' ')[0] ?? string.Empty;
-            bool descending = (!string.IsNullOrWhiteSpace(criteria?.OrderBy) && criteria.OrderBy.EndsWith(" desc"))? true:false;
+            bool descending = (!string.IsNullOrWhiteSpace(criteria?.OrderBy) && criteria.OrderBy.EndsWith(" desc", System.StringComparison.InvariantCultureIgnoreCase))? true:false;
 
             page.Data = data?.OrderBy(criteria.OrderBy)
                         .Skip(criteria.PageSize * (criteria.Page - 1))

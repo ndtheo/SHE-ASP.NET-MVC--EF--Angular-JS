@@ -19,6 +19,8 @@ namespace WebApplication.Toolkit.ExtensionMethods
         /// <summary>
         ///     Returns a <see cref="PageViewModel{T}" /> containing a page of the data given according to the search
         ///     criteria.
+        ///     
+        ///     Performs Ordering & Paging if applicable. When there is no order parameter, it sorts by the Id.
         /// </summary>
         /// <param name="data"></param>
         /// <param name="criteria"></param>
@@ -38,11 +40,9 @@ namespace WebApplication.Toolkit.ExtensionMethods
             criteria.PageSize = criteria.PageSize > 10 ? criteria.PageSize : 10;
             criteria.Page = criteria.Page > 1 ? criteria.Page : 1;
 
-            // if the model is of type base model, default OrderBy is Last Update Date. If not, default is the Id
+            // if the model is of type base model, default OrderBy is Last Update Date. If not, default is the I
             criteria.OrderBy = !string.IsNullOrWhiteSpace(criteria.OrderBy)
-                ? criteria.OrderBy
-                : (typeof(BaseEntity).IsAssignableFrom(typeof(T)) ? "LastUpdateDate desc" : "Id");
-
+    ? criteria.OrderBy : "Id";
             var page = new PageViewModel<T>
             {
                 PageSize = criteria.PageSize,
@@ -52,66 +52,10 @@ namespace WebApplication.Toolkit.ExtensionMethods
             string orderProperty = criteria.OrderBy.Split(' ')[0] ?? string.Empty;
             bool descending = (!string.IsNullOrWhiteSpace(criteria?.OrderBy) && criteria.OrderBy.EndsWith(" desc"))? true:false;
 
-                page.Data = typeof(T).GetSubProperty(orderProperty)?.CanWrite ?? false
-                    ? data?
-                        .Skip(criteria.PageSize * (criteria.Page - 1))
-                        .Take(criteria.PageSize)
-                        .ToList()
-                    : data?.ToList()
-
+            page.Data = data?.OrderBy(criteria.OrderBy)
                         .Skip(criteria.PageSize * (criteria.Page - 1))
                         .Take(criteria.PageSize)
                         .ToList();
-            //}
-            //else
-            //{
-                //if (orderProperty=="ExpertStatus")
-                //{
-                //    orderProperty = "ExpertStatus.Name";
-                //}
-                //else if(orderProperty == "ClaimsManagerReportStage")
-                //{
-                //    orderProperty = "ClaimsManagerReportStage.Name";
-                //}
-                //var subPropertyType = typeof(T).GetSubProperty(orderProperty);
-                //orderProperty = descending ? orderProperty + " desc" : orderProperty;
-                //if (null != subPropertyType)
-                //{
-                //    bool canWrite = subPropertyType.CanWrite;
-                //    string criteria1 = criteria.OrderBy;
-                //    if (canWrite)
-                //    {
-                //        var pagedData1 = data.OrderBy(orderProperty).Skip(criteria.PageSize * (criteria.Page - 1)).Take(criteria.PageSize).ToList();
-                //        page.Data = pagedData1;
-                //    }
-                //    else
-                //    {
-                //        var pagedData2 = data?.ToList()
-                //        .OrderBy(orderProperty)?
-                //        .Skip(criteria.PageSize * (criteria.Page - 1))
-                //        .Take(criteria.PageSize)
-                //        .ToList();
-                //        page.Data = pagedData2;
-                //    }
-                //}
-                //else
-                //{
-                //    string error = $"SubProperty null for orderProperty {orderProperty}";
-                //    Debug.Assert(false, error);
-                //    Debug.WriteLine(error);
-                //}
-
-                //page.Data = typeof(T).GetSubProperty(orderProperty)?.CanWrite ?? false
-                //    ? data?.OrderBy(criteria.OrderBy)?
-                //        .Skip(criteria.PageSize * (criteria.Page - 1))
-                //        .Take(criteria.PageSize)
-                //        .ToList()
-                //    : data?.ToList()
-                //        .OrderBy(criteria.OrderBy)?
-                //        .Skip(criteria.PageSize * (criteria.Page - 1))
-                //        .Take(criteria.PageSize)
-                //        .ToList();
-            //}
             return page;
         }
     }

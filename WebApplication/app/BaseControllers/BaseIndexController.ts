@@ -62,6 +62,13 @@ abstract class BaseIndexController implements angular.IController
         this.RefreshGrid();
     }
 
+    /** This method does the following:
+     *     2. Gets the page-size
+     *     3. Adds the current Filters through the use of this.Filter.
+     *     4. Calls the Search method of the database TS class, using controllerName, SearchCriteria as arguments
+     *          This method calls the related Search Endpoints in the Controllers. 
+     *          An improvement would be to place the Search actions inside the ApiControllers.        
+     *  */
     protected RefreshGrid() {
         Toolkit.trySetPageSize(this.SearchCriteria.PageSize);
         this.beforeRefreshGrid();

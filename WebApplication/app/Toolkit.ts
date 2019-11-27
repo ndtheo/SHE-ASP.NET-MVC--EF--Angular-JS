@@ -48,6 +48,7 @@
         const opt = document.createElement("option");
         opt.value = option.Id.toString();
         opt.label = option[labelProperty];
+        opt.innerHTML = option.Name;
         opt.selected = true;
         select.appendChild(opt);
         Toolkit.sortSelectOptions(select);

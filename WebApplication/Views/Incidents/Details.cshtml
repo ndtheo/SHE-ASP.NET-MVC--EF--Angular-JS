@@ -3,7 +3,7 @@
 @using Core.Entities
 @Html.ModalHeader(EntityLabels.INCIDENT)
 
-<form class="text-nowrap" novalidate="novalidate" name="AccidentsForm">
+<form class="text-nowrap" novalidate="novalidate" name="IncidentsForm">
 	<div class="form-horizontal">
         <uib-tabset active="active">
             <uib-tab index="0" heading="Home">
@@ -34,14 +34,14 @@
                     <div class="form-group col-sm-6 col-md-6">
                         @Html.CustomLabelFor(model => model.Description)
                         <div class="col-md-8">
-                            @Html.TextAreaFor(model => model.Description)
+                            @Html.CustomEditorFor(model => model.Description)
                             @Html.CustomValidationMessageFor(model => model.Description)
                         </div>
                     </div>
                     <div class="form-group col-sm-6 col-md-6">
                         @Html.CustomLabelFor(model => model.Person)
                         <div class="col-md-8">
-                            @Html.EditorFor(model => model.Person)
+                            @Html.CustomEditorFor(model => model.Person)
                             @Html.CustomValidationMessageFor(model => model.Person)
                         </div>
                     </div>

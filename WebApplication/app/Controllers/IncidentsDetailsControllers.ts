@@ -10,27 +10,27 @@ class IncidentsDetailsController extends BaseDetailsController {
         super("Incidents", $scope, $uibModal, $uibModalInstance, database, documents, id, parentId);
         this.model.IncidentDate = new Date(this.model.IncidentDate);
         this.$uibModalInstance.rendered.then(r => {
-            this.GetIncidentTypes();
+            //this.GetIncidentTypes();
         });
     }
 
-    public GetIncidentTypes() {
-        if (!this.model.Id) {
-            this.incidentTypes = [];
-            return;
-        }
+ //   public GetIncidentTypes() {
+ //       if (!this.model.Id) {
+ //           this.incidentTypes = [];
+ //           return;
+ //       }
 
-        this.$http.get<Array<{ Id, Name }>>(`../Incidents/GetIncidentTypes`)
-            .then(response => {
-                this.incidentTypes = response.data;
-            },
-                response => {
-                    this.sheAlert.error("There was an error loading incidents");
-                });
-	}
+ //       this.$http.get<Array<{ Id, Name }>>(`../Incidents/GetIncidentTypes`)
+ //           .then(response => {
+ //               this.incidentTypes = response.data;
+ //           },
+ //               response => {
+ //                   this.sheAlert.error("There was an error loading incidents");
+ //               });
+	//}
 
     protected afterLoad() {
-        this.GetIncidentTypes();
+        //this.GetIncidentTypes();
         if (this.model.IncidentDate != null) {
             this.model.IncidentDate = new Date(this.model.IncidentDate);
         }

@@ -29,7 +29,6 @@ namespace Core.Logic.ExcelGenerators
 
 			if (display.IncidentType)
 			{
-                //document.Add(getExcelColumn(type, "AccidentType.Name", data=>data.IncidentType))
 				var row = new List<object> {typeof(Incident).GetSubProperty("IncidentType.Name").GetDisplayName()};
 				row.AddRange(data.Select(x => x.IncidentType.Name));
 				document.Add(row);

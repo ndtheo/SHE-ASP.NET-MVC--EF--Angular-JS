@@ -82,6 +82,7 @@
     <Compile Include="Models\DbContext\ModelQueryIncludes.cs" />
     <Compile Include="Models\Display\DisplayIncident.cs" />
     <Compile Include="Models\Display\DisplayUser.cs" />
+    <Compile Include="Models\Display\DisplayWithName.cs" />
     <Compile Include="Models\SearchCriteria\IncidentSearchCriteria.cs" />
     <Compile Include="Models\SearchCriteria\IncidentTypeSearchCriteria.cs" />
     <Compile Include="Models\SearchCriteria\UserLogSearchCriteria.cs" />

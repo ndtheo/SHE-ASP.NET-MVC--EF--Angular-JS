@@ -9,6 +9,7 @@
 
     // ========== New Related Object ========================================================================================
     public static newRelatedObject($scope, $uibModal: ng.ui.bootstrap.IModalService, elementId, controller, formController, parentId = null, arrayName = null, labelProperty: string) {
+
         const modalInstance = $uibModal.open({
             animation: true,
             templateUrl: `/${controller}/Details?noCacheHack=${Date.now()}`,

@@ -58,6 +58,7 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExcelGenerators\BaseEntityToExcel.cs" />
     <Compile Include="ExcelGenerators\IncidentToExcel.cs" />
     <Compile Include="ModelExtensions\BaseEntityExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

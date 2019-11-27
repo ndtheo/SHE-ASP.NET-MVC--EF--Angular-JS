@@ -262,6 +262,7 @@
     <Compile Include="Api_Controllers\UsersController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\IncidentsController.cs" />
+    <Compile Include="Controllers\IncidentTypesController.cs" />
     <Compile Include="Controllers\UserLogsController.cs" />
     <Compile Include="Toolkit\ExtensionMethods\DictionaryToSelectListExtensions.cs" />
     <Compile Include="Toolkit\ExtensionMethods\ReflectionExtensions.cs" />
